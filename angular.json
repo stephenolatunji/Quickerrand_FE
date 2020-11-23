@@ -21,9 +21,11 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/svg"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "quick-errand"
+    }
+  },
+  "defaultProject": "quick-errand",
+  "cli": {
+    "analytics": "fd473531-a83e-4426-905b-0aca1abedfc5"
+  }
 }

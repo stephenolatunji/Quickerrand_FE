@@ -1,0 +1,24 @@
+<div class="body animate__animated {{animationAngle}}">
+    <img src="assets/svg/qe-logo-bg.svg" alt="">
+    <div class="get-connected">
+        <h3>Get</h3>
+        <h4>Started</h4>
+    </div>
+    <div class="avater">
+        <div></div>
+        <img src="assets/svg/avater3.svg" alt="">
+        <div></div>
+    </div>
+    <div class="text">
+        Let’s connect you with people who are right
+        where you need an errand to be done.
+    </div>
+    <div class="_dot">
+        <div class="circle" (click) = "myDecision(1)"></div>
+        <div class="circle" (click) = "myDecision(2)"></div>
+        <div class="circle" [style.background-color]="indexFunc.unboard.three? '#732CA4' : ''"></div>
+    </div>
+    <div class="bottom">
+        <div (click) = "start()">Get Started</div>
+    </div>
+</div>

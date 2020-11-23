@@ -1,0 +1,31 @@
+.modal {
+    border-radius: 50px 50px 0px 0px;
+}
+.modal-content {
+    padding: 56px 17px;
+}
+.modalBody div:first-child, .modalBody div:nth-child(2):hover {
+    background-color: #732CA4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;  
+    padding: 15px 0px; 
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 32px 0px;
+}
+.modalBody div:first-child:hover, .modal div:nth-child(2) {
+    color: #732CA4;
+    background-color: #fff;
+    border: 1px solid #62526D;
+    box-sizing: border-box;
+    border-radius: 24px;
+    padding: 12px 0px; 
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 16px;
+    text-align: center;
+    margin: 32px 0px;
+}

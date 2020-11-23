@@ -1,0 +1,70 @@
+.whole {
+    padding-bottom: 32%;
+}
+.text1 {
+    margin: 68px 94px 0px 17px;
+    line-height: 40px;
+    color: #62526D;
+    font-weight: 400;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 32px;
+}
+
+.text2 {
+    margin: 8px 78px 0px 17px;
+    line-height: 40px;
+    color: #62526D;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.what_would_you_like_to_do {
+    padding: 40px 16px 252px 17px;
+    background: #FFFFFF;
+    box-shadow: 0px -12px 20px rgba(98, 82, 109, 0.2);
+    border-radius: 32px;
+    margin-top: 28px;
+  }
+
+  h4 {
+    color: rgba(98, 82, 109, 0.85);
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 40px;
+  }
+
+  .make_errand {
+    background: #F8A220;
+    box-shadow: 0px 0px 8px rgba(248, 162, 32, 0.8);
+    border-radius: 8px;
+    padding: 40px 0px 8px 16px;
+    margin-top: 24px;
+    height: 72px;
+  }
+  .check_errand {
+    margin-top: 40px;
+    background: #732CA4;
+    box-shadow: 0px 0px 8px rgba(115, 44, 164, 0.8);
+    padding: 40px 0px 8px 16px;
+  }
+  .errand_text {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: #FFFFFF;
+  }
+  .qe_logo {
+    margin: -320px 0 0 0;
+    float: right;
+    width: 130.35px;
+    height: 350px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0)); 
+  }
+
+  @media screen and (max-width: 367px) {
+    .text1 {
+      /* white-space: nowrap; */
+        font-size: 24px;
+    }
+  }

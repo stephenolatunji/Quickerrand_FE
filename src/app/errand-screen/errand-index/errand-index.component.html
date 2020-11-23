@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="active-errand" (click) = "routMe('active-errands')">
+        <div class="active-errand-one">
+            <img src="assets/svg/active-errand.svg" alt="">
+            <span class="m-1">Active Errands</span>
+        </div>
+        <div class="active-errand-two">
+            <img src="assets/svg/proceed.svg" alt="">
+        </div>
+        <div class="active-errand-three">
+            5
+        </div>
+    </div>
+
+    <div class="requested-errand active-errand" (click) = "routMe('errand-requested-by-me')">
+        <div class="requested-errand-one">
+            <img src="assets/svg/errand-requested.svg" alt="">
+            <span class="m-1">Errands requested by me</span>
+        </div>
+        <div class="requested-errand-two">
+            <img src="assets/svg/proceed.svg" alt="">
+        </div>
+        <div class="requested-errand-three">
+            3
+        </div>
+    </div>
+
+    <div class="errand-run-by-me active-errand" (click) = "routMe('errand-run-by-me')">
+        <div class="errand-run-by-me-one">
+            <img src="assets/svg/errands-run-by-me.svg" alt="">
+            <span class="m-1">Errands run by me</span>
+        </div>
+        <div class="errand-run-by-me-two">
+            <img src="assets/svg/proceed.svg" alt="">
+        </div>
+        <div class="errand-run-by-me-three">
+            5
+        </div>
+    </div>
+</div>
+
+<app-footer class="footer"></app-footer>

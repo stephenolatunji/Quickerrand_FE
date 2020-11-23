@@ -1,0 +1,9 @@
+<div class="modal fade" id="notify" tabindex="-1" role="dialog" aria-labelledby="notifyTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-body text" *ngIf="notification_msg.success">
+            {{notification_msg.msg}}
+        </div>
+        <span (click)="hide()">Okay</span>
+    </div>
+  </div>

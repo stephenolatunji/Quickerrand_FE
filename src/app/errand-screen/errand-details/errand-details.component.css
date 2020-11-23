@@ -1,0 +1,115 @@
+.header {
+    width: 100%;
+    /* height: 128px; */
+    left: 0px;
+    top: 0px;
+    background: #732CA4;  
+    padding: 48px 17px 32px 17px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+.errand-details {
+    padding: 24px 16px;
+    height: 85vh;
+    background-color: #FFFFFF;
+}
+.errand-details h5 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #62526D;
+}
+.errand-details div {
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 16px;
+    color: rgba(98, 82, 109, 0.8);
+    word-spacing: 2px;
+    margin-top: 8px;
+}
+.errand-details-two h5, .errand-details-three h5, .errand-details-four h5, .errand-details-five h5{
+    margin-top: 24px;
+}
+.errand-details-two div {
+    display: flex;
+    /* margin-top: 8px; */
+}
+.errand-details-two span:first-child {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #62526D;
+    margin-right: 9px;
+}
+.errand-details-two span:nth-child(2), .errand-details-three div{
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(98, 82, 109, 0.8);
+}
+.errand-details-four div {
+    display: flex;
+    margin-top: 16px;
+}
+.errand-details-four div span {
+    color: rgba(98, 82, 109, 0.8);
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    margin-left: 8px;
+}
+.errand-details-five div {
+    display: flex;
+}
+.img {
+    margin-right: 16px;
+}
+.errand-details-five div div{
+    display: block;
+}
+.errand-details-five div div div span {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-decoration-line: underline;
+    color: rgba(98, 82, 109, 0.8);
+    margin-left: 8px;
+}
+h6 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(98, 82, 109, 0.8);
+}
+.button {
+    text-align: center;
+    background-color:  #732CA4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    /* bottom: 70px; */
+    width: 100%;
+    /* margin: 60px 16px 0 16px; */
+    color: white  !important;
+    padding: 12px 0;
+    margin-top: 100px !important;
+  }
+  .button:hover {
+    background-color: #62526D;
+    opacity: 0.2;
+  }
+  .star-rating {
+    border-top: 1px solid rgba(98, 82, 109, 0.5);
+    margin-top: 48px !important;
+    padding-top: 24px;
+  }
+  .star-rating div {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #62526D;
+  }
+  .btn {
+    margin-top: 24px !important;
+  }

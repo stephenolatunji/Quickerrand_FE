@@ -1,0 +1,26 @@
+<div class="header">
+    <div class="sub-head" >
+        <img src="assets/svg/baack-white.svg"  alt="" (click)="backFunc()">
+        <h5 class="text-justify">Active Errands</h5>
+        <div></div>
+    </div>
+    <mat-tab-group mat-align-tabs="center">
+        
+        <!-- Email Line -->
+        <mat-tab label="Run by me">
+            <div style="margin-top: 24px;">               
+                <app-run-by-me></app-run-by-me>
+            </div>
+        </mat-tab>
+    
+        <!-- details -->  
+        <mat-tab label="Requested by me">
+            <div style="margin-top: 24px;">               
+                <app-run-by-me></app-run-by-me>
+            </div>
+        </mat-tab>
+        
+    </mat-tab-group>
+</div>
+<div class="bg"></div>
+<app-footer class="footer"></app-footer>

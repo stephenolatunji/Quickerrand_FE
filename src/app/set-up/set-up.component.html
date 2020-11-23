@@ -1,0 +1,145 @@
+<div class="body animate__animated animate__bounce">
+
+    <div class="d-flex header">
+        <span class="mr-auto"></span>
+        <span class="mr-auto">
+            Create your account 
+        </span>
+        <span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.125 19.25L4.875 5" stroke="#7A797B" stroke-width="2.03571" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M19.125 5L4.875 19.25" stroke="#7A797B" stroke-width="2.03571" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </span>
+    
+    </div>
+    
+    <mat-tab-group mat-align-tabs="center" [selectedIndex] = "indexSelected">
+    
+        <!-- Email Line -->
+        <mat-tab label="Email">
+            <div class="mt-2">
+                <label for="email">What's your email?</label>
+                <div class="email-line d-flex">
+                    <img src="assets/svg/mail.svg" alt="">
+                    <input type="email" class="col-10" placeholder="Email" [(ngModel)]="user.email" name="email">
+                </div>        
+            </div>
+            <div class="d-flex pt-3" *ngIf="emailErr">
+                <span class="mr-auto"></span>
+                <span class="err">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 1C6.61553 1 5.26215 1.41054 4.11101 2.17971C2.95987 2.94888 2.06266 4.04213 1.53285 5.32122C1.00303 6.6003 0.86441 8.00776 1.13451 9.36563C1.4046 10.7235 2.07129 11.9708 3.05026 12.9497C4.02922 13.9287 5.2765 14.5954 6.63437 14.8655C7.99224 15.1356 9.3997 14.997 10.6788 14.4672C11.9579 13.9373 13.0511 13.0401 13.8203 11.889C14.5895 10.7378 15 9.38447 15 8C15 6.14348 14.2625 4.36301 12.9497 3.05025C11.637 1.7375 9.85652 1 8 1ZM8 14C6.81331 14 5.65328 13.6481 4.66658 12.9888C3.67989 12.3295 2.91085 11.3925 2.45673 10.2961C2.0026 9.19974 1.88378 7.99334 2.11529 6.82946C2.3468 5.66557 2.91825 4.59647 3.75736 3.75736C4.59648 2.91824 5.66558 2.3468 6.82946 2.11529C7.99335 1.88378 9.19975 2.0026 10.2961 2.45672C11.3925 2.91085 12.3295 3.67988 12.9888 4.66658C13.6481 5.65327 14 6.81331 14 8C14 9.5913 13.3679 11.1174 12.2426 12.2426C11.1174 13.3679 9.5913 14 8 14Z" fill="#FF1C1C"/>
+                        <path d="M7.5 4H8.5V9.5H7.5V4Z" fill="#FF1C1C"/>
+                        <path d="M8 11C7.85166 11 7.70666 11.044 7.58332 11.1264C7.45999 11.2088 7.36386 11.3259 7.30709 11.463C7.25032 11.6 7.23547 11.7508 7.26441 11.8963C7.29335 12.0418 7.36478 12.1754 7.46967 12.2803C7.57456 12.3852 7.7082 12.4566 7.85368 12.4856C7.99917 12.5145 8.14997 12.4997 8.28701 12.4429C8.42406 12.3861 8.54119 12.29 8.6236 12.1667C8.70601 12.0433 8.75 11.8983 8.75 11.75C8.75 11.5511 8.67098 11.3603 8.53033 11.2197C8.38968 11.079 8.19891 11 8 11Z" fill="#FF1C1C"/>
+                    </svg>
+                    You already signed up with this email
+                </span>
+                <span class="ml-auto"></span>
+            </div>
+            <button *ngIf="!emailErr" class="button1" [style.opacity]="user.email==null || user.email==''? '0.2' : ''" [style.background-color]="user.email==null || user.email==''? '#62526D' : '#732CA4' " (click) = "submit('email')" >Continue</button>
+            <button *ngIf="emailErr" class="button1 buttonErr" [style.opacity]="user.email==null || user.email==''? '0.2' : ''" [style.background-color]="user.email==null || user.email==''? '#62526D' : '#732CA4' " (click) = "submit('email')" >Continue</button>
+            
+            <div class="line-text"><span> or sign up with</span></div>
+            <div class="social-media">
+                <button class="g-b mt-3"><img src="https://cdn.worldvectorlogo.com/logos/google-icon.svg" width="14" height="14" alt="" class="mr-1"> Google</button>
+                <button class="f-b mt-3"> 
+                    <svg width="10" height="14" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.00036 0.00332907L6.92554 0C4.59455 0 3.08817 1.54552 3.08817 3.93762V5.75313H1.00203C0.82176 5.75313 0.675781 5.89927 0.675781 6.07954V8.71001C0.675781 8.89028 0.821926 9.03625 1.00203 9.03625H3.08817V15.6738C3.08817 15.854 3.23414 16 3.41441 16H6.13623C6.3165 16 6.46248 15.8539 6.46248 15.6738V9.03625H8.90166C9.08193 9.03625 9.2279 8.89028 9.2279 8.71001L9.2289 6.07954C9.2289 5.99299 9.19445 5.91009 9.13336 5.84884C9.07227 5.78758 8.98905 5.75313 8.90249 5.75313H6.46248V4.2141C6.46248 3.47438 6.63875 3.09886 7.60234 3.09886L9.00003 3.09836C9.18013 3.09836 9.32611 2.95222 9.32611 2.77211V0.329578C9.32611 0.149642 9.1803 0.00366197 9.00036 0.00332907Z" fill="white"/>
+                    </svg>                
+                    Facebook
+                </button>
+            </div>
+        </mat-tab>
+    
+        <!-- details -->  
+        <mat-tab label="Personal Details">
+    
+            <div class="mt-2">
+                <label for="name">What's your name?</label>
+                <div class="email-line">
+                    <svg class="mb-2" width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.75 10C11.5117 10 13.75 7.76172 13.75 5C13.75 2.23828 11.5117 0 8.75 0C5.98828 0 3.75 2.23828 3.75 5C3.75 7.76172 5.98828 10 8.75 10ZM12.25 11.25H11.5977C10.7305 11.6484 9.76562 11.875 8.75 11.875C7.73438 11.875 6.77344 11.6484 5.90234 11.25H5.25C2.35156 11.25 0 13.6016 0 16.5V18.125C0 19.1602 0.839844 20 1.875 20H15.625C16.6602 20 17.5 19.1602 17.5 18.125V16.5C17.5 13.6016 15.1484 11.25 12.25 11.25Z" fill="#62526D" fill-opacity="0.8"/>
+                    </svg>
+                        
+                    <input type="text" placeholder="First Name" class="col-5" [(ngModel)]="user.firstname" name="firstname">
+                    <input type="text" placeholder="Last Name" class="col-5" [(ngModel)]="user.lastname" name="lastname">
+                </div>
+                <label for="name" style="margin-top: 70px;">What's your phone number?</label>
+                <div class="email-line">
+                    <svg class="mb-1" width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.9555 12.6163L13.4847 11.087C13.6907 10.8836 13.9513 10.7444 14.2349 10.6862C14.5184 10.628 14.8128 10.6534 15.0822 10.7593L16.946 11.5035C17.2182 11.614 17.4517 11.8026 17.6169 12.0456C17.7822 12.2886 17.8718 12.575 17.8745 12.8689V16.2824C17.8729 16.4822 17.8309 16.6797 17.7509 16.8629C17.671 17.0462 17.5548 17.2113 17.4094 17.3484C17.264 17.4856 17.0923 17.5919 16.9047 17.6609C16.7171 17.7299 16.5175 17.7603 16.3179 17.7502C3.25791 16.9377 0.622695 5.87805 0.124326 1.64533C0.101192 1.43747 0.122329 1.22707 0.186348 1.02797C0.250367 0.828871 0.355816 0.645581 0.495759 0.490161C0.635702 0.33474 0.806967 0.210712 0.998286 0.126234C1.18961 0.0417563 1.39664 -0.00125559 1.60578 2.79012e-05H4.90321C5.19746 0.000898877 5.48471 0.0897803 5.72804 0.25524C5.97136 0.4207 6.15962 0.655171 6.2686 0.928496L7.01274 2.79226C7.12215 3.06061 7.15006 3.35524 7.09299 3.63936C7.03593 3.92348 6.89641 4.18448 6.69187 4.38977L5.16263 5.91901C5.16263 5.91901 6.04331 11.879 11.9555 12.6163Z" fill="#62526D" fill-opacity="0.8"/>
+                    </svg>
+                        
+                    <input type="phone" class="col-10" placeholder="Phone Number" [(ngModel)]="user.mobile" name="mobile">
+                </div>
+            </div>
+    
+            <button 
+            class="button1" 
+            [style.opacity]="user.firstname!==null && user.lastname!==null && user.mobile!==null && user.firstname!=='' && user.lastname!=='' && user.mobile!=='' ? '' : '0.2' " 
+            [style.background-color]="user.firstname!==null && user.lastname!==null && user.mobile!==null && user.firstname!=='' && user.lastname!=='' && user.mobile!=='' ? '#732CA4' : '#62526D' " 
+            (click) = "submit('name')" >
+            Continue
+            </button>
+        </mat-tab>
+        
+        <!-- Password -->
+        <mat-tab label="Password">
+            <div class="mt-2">
+                <label for="password">Create your password</label>
+                <div class="email-line d-flex">
+                    <img src="assets/svg/lock.svg" class="mr-2" alt="">
+                    <input type="password" id='password' placeholder="Password" [(ngModel)]="user.password" name="password" (keyup)="checkPwdValid()">
+                    <div class="show ml-auto" (click) = 'toggleType()'>{{ type=='password'? 'Show' : 'Hide' }}</div>
+                </div>
+            </div>
+            <div class="mt-4 pwd_info" [style.color]="!mark1? '#FF1C1C' : '#62526D' ">
+                • Upper and lowercase letters
+                <img src="assets/svg/warning.svg" alt="" *ngIf="!mark1">
+            </div>
+            <div class="pwd_info" [style.color]="!mark2? '#FF1C1C' : '#62526D' ">
+                • 8 or more characters
+                <img src="assets/svg/warning.svg" alt="" *ngIf="!mark2">
+            </div>
+            <div class="pwd_info" [style.color]="!mark3? '#FF1C1C' : '#62526D' ">
+                • Contains a number and symbol
+                <img src="assets/svg/warning.svg" alt="" *ngIf="!mark3">
+            </div>
+    
+            <div class="d-flex mt-5">
+    
+                <section class="example-section mt-1 mr-3">
+                    <mat-checkbox class="example-margin" color="primary" [(ngModel)]="user.completed" name="completed"></mat-checkbox>
+                </section>
+    
+                <span class="aggrement mr-auto">
+                    By checking this box, you agree to our <br /> <strong><a href=""> Terms of Service</a></strong>  and <strong><a href=""> Privacy Policy.</a></strong>
+                </span>
+                <span class="ml-auto"></span>
+            </div>
+    
+            <div *ngIf="!user.completed" class="mt-3 text-danger">
+                The box must be checked!
+            </div>
+                
+            <button 
+            class="button1" 
+            (click) = "submit('all')"
+            [style.opacity]="user.password!==null && user.completed!==null && user.password!=='' ? '' : '0.2' " 
+            [style.background-color]="user.password!==null && user.completed!==null && user.password!==''? '#732CA4' : '#62526D' " 
+            >
+            Create account
+            </button>
+        </mat-tab>
+        
+    </mat-tab-group>
+    
+    <div class="have-account">
+        Already have an account? <a [routerLink]="['/login']" routerLinkActive="router-link-active">Sign in</a> 
+    </div>
+    
+    <!-- notifier -->
+    <app-notify [notification_msg] = "notification_msg"></app-notify>
+
+</div>

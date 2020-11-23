@@ -1,0 +1,30 @@
+<div class="whole">
+    <div class="head">
+        <img src="assets/svg/back.svg" alt="" (click)="back()">
+        <div class="text1">
+            Make an errand request
+        </div>
+        <img src="assets/svg/home.svg" alt="">
+    </div>
+    
+    <div class="body">
+        <div class="area">
+            What is the estimate cost 
+            of the item(s) you wish to purchase?
+        </div>    
+        <div class="box1 d-flex">
+            <img src="assets/svg/naira.svg" alt="">
+            <input type="number" placeholder="Enter amount here" class="mr-auto" autofocus name="estimate_cost" [(ngModel)]="estimate_cost">
+            <img src="assets/svg/cancel.svg" alt="">
+        </div>  
+
+    <!-- continue button -->
+    <div 
+    class="button"
+    [style.opacity]="estimate_cost == null || estimate_cost == '' ? '0.2' : '' "
+    (click)="estimate_cost == null || estimate_cost == '' ? '' : continue()"
+    >
+        Continue
+    </div>
+</div>
+

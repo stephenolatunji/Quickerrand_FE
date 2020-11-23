@@ -1,0 +1,23 @@
+.errands {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px 1px rgba(98, 82, 109, 0.3);
+    padding: 16px;
+    margin-bottom: 24px;
+}
+.errands-one {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #62526D;
+}
+.errands-two {
+    text-align: right;
+}
+.errands-three {
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 16px;
+    color: rgba(98, 82, 109, 0.8);
+    word-spacing: 2px;
+}

@@ -1,0 +1,38 @@
+<div class="whole">
+    <div class="head">
+        <img src="assets/svg/back.svg" alt="" (click)="back()">
+        <div class="text1">
+            Make an errand request
+        </div>
+        <img src="assets/svg/home.svg" alt="">
+    </div>
+    
+    <div class="body">
+        <div class="area">
+            What do you need someone to do for you?
+        </div>  
+           
+        <div class="additional_info">
+            <textarea 
+            name="additional_info" 
+            [(ngModel)]="additional_info"
+            rows="7"
+            placeholder="Please give a brief description of your errand..."
+            ></textarea>
+            <div class="img" (click)="seeAnExample()">
+                <h6>See an example</h6>
+            </div>
+        </div>
+
+    <!-- continue button -->
+    <div 
+    class="button"
+    [style.opacity]="additional_info == undefined || additional_info == ''? '0.2' : '' "
+    (click) = "additional_info == undefined || additional_info == ''? '' : continue()"
+    >
+        Continue
+    </div>
+</div>
+
+<app-errand-description-example [notification_msg] = "msg"></app-errand-description-example>
+

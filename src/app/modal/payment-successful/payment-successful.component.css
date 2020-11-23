@@ -1,0 +1,31 @@
+.text-center {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    color: #62526D;
+}
+.modal-content {
+    padding: 17px;
+}
+.modal-body img {
+    margin: 128px 0 24px 0;
+}
+.button {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 16px;
+    text-align: center;
+    background-color:  #732CA4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    /* bottom: 120px; */
+    margin: 136px 0px 56px 0px;
+    width: 100%;
+    
+    color: white;
+    padding: 12px 0;
+}
+.button:hover {
+    background-color: #62526D;
+    opacity: 0.2;
+}

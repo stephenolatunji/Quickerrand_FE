@@ -1,0 +1,50 @@
+<div class="whole">
+    <div class="head">
+        <img src="assets/svg/back.svg" alt="" (click)="back()">
+        <div class="text1">
+            Make an errand request
+        </div>
+        <img src="assets/svg/home.svg" alt="">
+    </div>
+    
+    <div class="body">
+        <div class="area">
+            We need some description about 
+            the item(s) you’re purchasing...
+        </div>  
+        <div class="area2">
+            <h6 class="list_header">
+                List the item(s) you wish to purchase below.
+            </h6>  
+            <div class="box1 d-flex" *ngFor="let item of list; let i = index">
+                <span>{{i+1}}.</span>
+                <input type="text" placeholder="Item {{i+1}}" class="mr-auto" id="{{i}}" (keyup)="recordItem($event)">
+                <img src="assets/svg/cancel.svg" alt="">
+            </div>  
+    
+            <div class="img" (click)="addMore()">
+                <img src="assets/svg/add_more.svg" alt="">
+            </div>
+        </div>
+
+        <div class="additional_info">
+            <h6>Additional information</h6>
+            <textarea 
+            name="item_additional_info" 
+            [(ngModel)]="items.item_additional_info"
+            id="" 
+             rows="5"
+             placeholder="Type any additional information you may have concerning your purchase..."
+             ></textarea>
+        </div>
+
+    <!-- continue button -->
+    <div 
+    class="button"
+    [style.opacity]="disabled? '0.2' : ''"
+    (click) = "disabled? '' : continue()"
+    >
+        Continue
+    </div>
+</div>
+

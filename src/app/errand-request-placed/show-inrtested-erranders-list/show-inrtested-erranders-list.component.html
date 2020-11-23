@@ -1,0 +1,21 @@
+<div class="content">
+    <h5>Interested erranders</h5>
+    <h6>Waiting for people to show interest in your errand...</h6>
+
+    <div class="errandee" *ngFor="let item of errandee">
+        <img src="assets/svg/errandee.svg" alt="">
+        <div>
+            <h6>Smith_2</h6>
+            <div>
+                <span>4.6</span>
+                <img src="assets/svg/star.svg" alt="">
+                5 errands completed
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<app-pay-errand-fee></app-pay-errand-fee>
+<app-payment-successful></app-payment-successful>
+<app-errandee-profile></app-errandee-profile>

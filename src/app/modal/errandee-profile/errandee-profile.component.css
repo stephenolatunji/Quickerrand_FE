@@ -1,0 +1,38 @@
+.modalHeader {
+    padding: 16px;
+}
+.errandee {
+    display: inline-flex;
+    margin-bottom: 12px;
+    padding: 8px 16px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    width: 100%;
+}
+.errandee img {
+    margin-right: 32px;
+}
+.errandee div h6 {
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: rgba(98, 82, 109, 0.8);
+}
+.errandee div div {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(98, 82, 109, 0.8);
+}
+.errandee div div img {
+    margin-left: 5.33px;
+    margin-right: 9.33px;
+}
+.contact {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px;
+    border-top: 1px solid rgba(98, 82, 109, 0.5);
+    padding: 24px 76px;
+}

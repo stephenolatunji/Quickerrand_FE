@@ -1,0 +1,28 @@
+<div class="whole"> 
+    <div class="text1">
+        Welcome on board,
+    </div>
+    <div class="text2">
+        <!-- {{ userData[1] }}! python render -->
+        {{ userData.firstname }}!
+    </div>
+    
+    <div class="what_would_you_like_to_do">
+        <h4>What would you like to do?</h4>
+        
+        <div class="make_errand" (click)="makeErrand()">
+            <span class="errand_text">
+                Make an errand request
+            </span>
+        </div>
+        
+        <div class="make_errand check_errand">
+            <span class="errand_text">
+                Check available errands in my area
+            </span>
+        </div>
+        <img class="qe_logo" src="assets/svg/qe-logo.svg" alt="">
+    </div>
+        
+    <app-footer class="footer"></app-footer>
+</div>

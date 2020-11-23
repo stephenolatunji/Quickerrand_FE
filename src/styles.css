@@ -1,1 +1,79 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+* {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+  div, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+  .version-info {
+    font-size: 8pt;
+    float: right;
+    margin: 8px;
+  }
+  
+.footer {
+  position: fixed;
+  bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  background-color: #F9F9F9;
+  padding: 8px;
+  padding-bottom: 32px;
+}
+body {
+  background-color: #E5E5E5;
+}
+.g-b {
+  /* position: fixed; */
+  /* margin-top: 100px; */
+  width: 48%;
+  /* margin-right: 10px; */
+  /* margin-left: 10px; */
+  border: 1px solid rgba(98, 82, 109, 0.5);
+  background-color: white;
+  padding: 10px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+/* identical to box height, or 100% */
+  color: #62526D;
+}
+.f-b {
+  /* position: fixed; */
+  /* margin-top: 100px; */
+  width: 48%;
+  /* margin-left: 20px; */
+  border: 1px solid rgba(98, 82, 109, 0.5);
+  padding: 8px 0;
+  box-sizing: border-box;
+  background: #3B5998;
+  border-radius: 4px;
+
+  font-family: 'Source Sans Pro', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+/* identical to box height, or 100% */
+  color: #FFFFFF;
+}
+
+.have-account {
+  margin-top: 200px;
+  text-align: center;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(98, 82, 109, 0.8);
+}
+
+

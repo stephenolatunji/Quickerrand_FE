@@ -1,0 +1,178 @@
+/* Heading - Login Screen */
+@import url('https://fonts.googleapis.com/css?family=Source Sans Pro');
+
+.body {
+    padding: 56px 17px 32px 17px;
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+.header {  
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: #62526D;
+}
+
+input {
+    font-weight: normal;
+    font-size: 16px;
+    outline: 0;
+    border: 0px;
+    color: #62526D;
+    width: 80%;
+}
+
+.email-line {
+    margin-top: 5px;
+    border-bottom: 2px solid rgba(98, 82, 109, 0.5); box-sizing: border-box;
+}
+
+.button1 {
+    margin-top: 70px;
+    width: 100%;
+    background: linear-gradient(268.84deg, #732CA4 0%, #8C62A9 100.7%);
+    border-radius: 24px;        
+    border: 0px;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 16px;
+    padding: 10px 0 10px 0;
+}
+.buttonErr {
+    margin-top: 30px;
+}
+
+
+.button1:hover {
+    width: 100%;
+    background: #62526D;
+    border-radius: 20px;  
+    color: white;
+    border: 0px;
+    color: white;
+}
+
+
+
+a {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    text-align: center;
+    text-decoration-line: underline;
+    color: #62526D;
+}
+
+.show {
+    /* position: absolute; */
+    left: 90.64%;
+    right: 0%;
+    /* top: 65%; */
+    bottom: 46.5%;
+    
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height, or 123% */
+    
+    text-align: right;
+    
+    color: #62526D;
+    
+}
+.social-media {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pwd_info {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: #62526D;
+}
+
+.line-text {
+    /* width: 100%;  */
+    text-align: center; 
+    border-bottom: 1px solid #000; 
+    line-height: 0.1em;
+    font-size: 16px;
+    margin: 100px 0 20px;
+    color: rgba(98, 82, 109, 0.8)
+}
+
+.line-text span {
+    background:#fff; 
+    padding:0 10px; 
+}
+
+.g-b {
+    /* position: fixed; */
+    /* margin-top: 100px; */
+    width: 48%;
+    /* margin-right: 10px; */
+    /* margin-left: 10px; */
+    border: 1px solid rgba(98, 82, 109, 0.5);
+    background-color: white;
+    padding: 10px 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+/* identical to box height, or 100% */
+    color: #62526D;
+}
+.f-b {
+    /* position: fixed; */
+    /* margin-top: 100px; */
+    width: 48%;
+    /* margin-left: 20px; */
+    border: 1px solid rgba(98, 82, 109, 0.5);
+    padding: 8px 0;
+    box-sizing: border-box;
+    background: #3B5998;
+    border-radius: 4px;
+
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+/* identical to box height, or 100% */
+    color: #FFFFFF;
+}
+
+.have-account {
+    margin-top: 200px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(98, 82, 109, 0.8);
+}
+
+@media screen and (max-width: 264px) {
+    .header {
+        font-size: 15px;
+    }
+    label {  
+        font-size: 16px;
+    }
+    .f-b, .g-b { 
+       padding: 5px 0;
+       font-size: 14px;
+    }
+}

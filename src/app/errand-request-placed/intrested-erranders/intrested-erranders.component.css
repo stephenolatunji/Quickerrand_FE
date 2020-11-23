@@ -1,0 +1,93 @@
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 17.69px 0px 17px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    color: rgba(98, 82, 109, 0.85);
+    border-bottom: 1px solid rgba(98, 82, 109, 0.5);
+    padding-bottom: 16px;
+}
+
+.body {
+    background: #FFFFFF;
+    box-shadow: 0px -12px 20px rgba(98, 82, 109, 0.2);
+    border-radius: 32px 32px 0px 0px;
+    margin-top: 40px;
+    margin-bottom: 32px;
+    padding: 24px 0 24px 0;
+    height: 90vh;
+    overflow: auto;
+  }
+
+.location-section {
+    padding: 24px 22px 16px 22px;
+    /* margin-top: 16px; */
+    background: #F9F9F9;
+    box-shadow: 0px 2px 4px rgba(84, 69, 94, 0.2);
+}
+
+.d-flex div {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 32px;
+    color: #62526D;
+    margin-top: 16px;
+}
+
+.cancel_text {
+    text-align: center;
+    margin-top: 23.92px;
+    font-weight: 600;
+    font-size: 14px;
+    color: rgba(98, 82, 109, 0.8);
+}
+
+.additional_info {
+    padding: 24px 0px 16px 0px;
+    background: #F9F9F9;
+    box-shadow: 0px 2px 4px rgba(84, 69, 94, 0.2);
+    margin-top: 16px;
+    min-height: 464px;
+}
+.button {
+    position: fixed;
+    width: 91.5%;
+    bottom: 30%;
+}
+.button div:first-child {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 16px;
+    text-align: center;
+    background-color:  #732CA4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    /* bottom: 120px; */
+    width: 100%;
+    margin: 0px 17px 36px 17px;
+    color: white;
+    padding: 12px 0;
+}
+.button:first-child:hover {
+    background-color: #62526D;
+    opacity: 0.2;
+}
+.button div:last-child {
+    line-height: 16px;
+    text-align: center;
+    padding-left: 25px;
+}
+.button div:last-child span {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    padding-left: 10.63px;
+    color: rgba(98, 82, 109, 0.8);
+}
+

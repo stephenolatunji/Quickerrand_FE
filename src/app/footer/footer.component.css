@@ -1,0 +1,13 @@
+.body {
+    display: flex;
+    justify-content: space-around;
+}
+.svg {
+    text-align: center;
+}
+.svg_text {
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: #732CA4;
+}

@@ -1,0 +1,25 @@
+<div class="body animate__animated {{animationAngle}}">
+    <img src="assets/svg/qe-logo-bg.svg" alt="">
+    <div class="get-connected">
+        <h3>Easy, Extra</h3>
+        <h4>Cash</h4>
+    </div>
+    <div class="avater">
+        <div></div>
+        <img src="assets/svg/avater2.svg" alt="">
+        <div></div>
+    </div>
+    <div class="text">
+        Make money by simply running errands
+        for people right where you are.
+    </div>
+    <div class="_dot">       
+        <div class="circle" (click)="myDecision(1)"></div>
+        <div class="circle" [style.background-color]="indexFunc.unboard.two? '#732CA4' : ''"></div>
+        <div class="circle" (click)="myDecision(3)"></div>
+    </div>
+    <div class="bottom">
+        <div (click) = 'skip()'>Skip</div>
+        <div (click) = 'toggleUnboardingPage()'>Next</div>
+    </div>
+</div>

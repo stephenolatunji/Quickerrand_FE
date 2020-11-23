@@ -1,0 +1,100 @@
+<div class="whole">
+    <div class="head">
+        <img src="assets/svg/back.svg" alt="" (click)="backFunc()">
+        <div class="text1">
+            Make an errand request
+        </div>
+        <img src="assets/svg/home.svg" alt="">
+    </div>
+    
+    <div class="body">
+        <div class="area">
+            In which area do you need
+            someone to run your errand?
+        </div>    
+        <div class="box1">
+            <img src="assets/svg/search.svg" alt="">
+            <input type="text" placeholder="Search for area/local govt. area" autofocus name="searchBox" [(ngModel)]="searchBox" (keyup)="autoComplete()" >
+        </div>  
+
+        <!-- <div class="use_current_location">
+            <img src="assets/svg/current_location.svg" alt="">
+            <span>
+                Use current location
+            </span>
+        </div> -->
+
+        <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="mat-elevation-z0">
+            
+            <mat-expansion-panel-header>        
+                <mat-panel-title>
+                    <span>
+                        <img src="assets/svg/saved_areas.svg" alt="">
+                        <span class="saved_areas">Saved areas</span>
+                    </span>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            
+            <div class="d-flex">
+                <div class="mr-auto saved_areas_text">
+                    Ozumba Mbadiwe Road, Lagos
+                </div>
+                <img src="assets/svg/cancel.svg" alt="">
+            </div>
+
+            <div class="d-flex">
+                <div class="mr-auto saved_areas_text">
+                    Obafemi Awolowo Road, Ikoyi, Lagos
+                </div>
+                <img src="assets/svg/cancel.svg" alt="">
+            </div>
+
+            <div class="d-flex">
+                <div class="mr-auto saved_areas_text">
+                    Computer Village, Lagos
+                </div>
+                <img src="assets/svg/cancel.svg" alt="">
+            </div>
+            
+        </mat-expansion-panel>
+
+        <div class="history d-flex">
+            <img src="assets/svg/timer.svg" alt="">
+            <span class="mr-auto">Glover Road, Lagos</span>
+            <img src="assets/svg/more.svg" alt="">
+        </div>
+        <div class="history d-flex">
+            <img src="assets/svg/timer.svg" alt="">
+            <span class="mr-auto">Ajao Estate, Lagos</span>
+            <img src="assets/svg/more.svg" alt="">
+        </div>
+        <div class="history d-flex">
+            <img src="assets/svg/timer.svg" alt="">
+            <span class="mr-auto">Ikeja City Mall, Lagos</span>
+            <img src="assets/svg/more.svg" alt="">
+        </div>  -->
+
+        <!-- google search -->
+        <div class="google_search" *ngFor="let suggest of suggestion" (click)="setLocation(suggest)">
+            <img src="assets/svg/location.svg" alt="" *ngIf="!loader">
+            <div *ngIf="!loader">
+                <strong>{{ suggest.locality }}</strong> <br />
+                {{ suggest.region }}
+            </div>
+        </div>
+
+        <div class="loader mt-5" *ngIf="loader">
+            <mat-spinner></mat-spinner>
+        </div>
+
+    </div> 
+
+    <!-- continue button -->
+    <div 
+    class="button"
+    (click) = "searchBox == null || searchBox == '' || !locationSet ? '' : handleContinue()"
+    [style.opacity]="searchBox == null || searchBox == '' || !locationSet ? '0.2' : '' " 
+    >
+    Continue
+    </div>
+</div>

@@ -1,0 +1,92 @@
+.text {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(98, 82, 109, 0.8);
+    display: block;
+}
+span {
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration-line: underline;
+    color: #62526D;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 16px;
+}
+.modalHeader {
+    background-color: #F4EEF9;
+    /* padding-top: 20px; */
+    padding-right: 20px;
+}
+.modalHeader h5 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+    color: #62526D;
+    margin: 8px 24px;
+}
+.coin {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+.modal-body {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #62526D;
+    padding-right: 17px;
+}
+.modal-body h6:first-child {   
+    border-bottom: 1px solid rgba(98, 82, 109, 0.5);
+    box-sizing: border-box;
+    padding-bottom: 16px;
+}
+.modal-body h6:nth-child(2) {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #62526D;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+.pay_from_coin_wallet {
+    border-bottom: 0.5px solid rgba(98, 82, 109, 0.5);
+}
+
+.pay_from_coin_wallet h6 {
+    font-weight: normal !important;
+    font-size: 15px !important;
+    line-height: 16px !important;
+    color: rgba(98, 82, 109, 0.8) !important;
+}
+.pay_from_coin_wallet span {
+    text-decoration: line-through;
+    font-weight: normal !important;
+}
+.pay_from_coin_wallet img {
+    margin-right: 17px;
+}
+
+.button {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 16px;
+    text-align: center;
+    background-color:  #732CA4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    /* bottom: 120px; */
+    margin: 40px 0px 56px 0px;
+    width: 100%;
+    
+    color: white;
+    padding: 12px 0;
+}
+.button:hover {
+    background-color: #62526D;
+    opacity: 0.2;
+}

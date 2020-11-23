@@ -1,0 +1,42 @@
+#map {
+    width:100%;
+    height:84vh;
+    position: relative;
+}
+.button {
+    /* position: absolute; */
+    text-align: center;
+    background-color:  #732CA4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    margin-top: 16px;    
+    width: 90%;
+    margin: 0px 16px 0 16px;
+    color: white;
+    padding: 12px 0;
+  }
+  .button:hover {
+    background-color: #62526D;
+    opacity: 0.2;
+  }
+  .bg-light div:first-child {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #62526D;
+    background-color: #fff;
+    margin-bottom: 16px;
+  }
+  .bg-light {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    padding: 16px 0;
+    height: fit-content;
+  }
+  .back {
+    position: absolute;
+    z-index: 1;
+    margin: 48px 20px;
+  }
