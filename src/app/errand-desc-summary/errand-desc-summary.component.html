@@ -24,7 +24,7 @@
         </div>  
            
 
-        <div class="additional_info">
+        <div class="additional_info" *ngIf="errandDetails.require_purchase=='yes'">
             <div>
                 <img src="assets/svg/note.svg" alt="">
                 <div>
@@ -38,6 +38,19 @@
 
             <div  style="border-top: 0.5px solid rgba(84, 69, 94, 0.5);" class="info">
                 <h6>Additional information</h6>
+                <div>
+                   {{errandDetails.items.item_additional_info}}
+                </div>
+                <div class="edit_text">
+                    Edit
+                </div>
+            </div>
+        </div>
+
+        <div class="additional_info" *ngIf="errandDetails.require_purchase=='no'">
+
+            <div class="info">
+                <h6>Errand description</h6>
                 <div>
                    {{errandDetails.additional_info}}
                 </div>

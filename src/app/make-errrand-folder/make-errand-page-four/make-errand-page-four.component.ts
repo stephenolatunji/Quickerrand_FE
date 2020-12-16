@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IndexComponent } from "../index/index.component";
 import { HelperService } from 'src/app/service/helper.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-make-errand-page-four',
@@ -15,7 +16,7 @@ export class MakeErrandPageFourComponent implements OnInit {
     item_additional_info: null
   }
 
-  constructor(private helper: HelperService, private indexFunc: IndexComponent) { }
+  constructor(private helper: HelperService, private indexFunc: IndexComponent, private rout: Router) { }
 
   ngOnInit(): void {
   }
@@ -43,8 +44,7 @@ export class MakeErrandPageFourComponent implements OnInit {
      };
      this.helper.saveErrandDetail(setErrandDetails);
      // do routing
-     const markData = { one: false, two: false, three: false, four: false, five: false, six: true };
-     this.indexFunc.mark = markData;
+     this.rout.navigate(['errand-description-summary'])
   }
 
   back(): void {
