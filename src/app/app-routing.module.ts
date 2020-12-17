@@ -58,7 +58,7 @@ const routes: Routes = [
     path: 'errand-details/1', component: ErrandDetailsComponent
   },
   {
-    path: 'account', component: AccountComponent
+    path: 'account', component: AccountComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }
   },
   {
     path: 'welcome', component: UnboardingIndexComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToUser }

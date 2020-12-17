@@ -80,3 +80,6 @@ h4 {
     color: #FF1C1C;
     padding-bottom: 38px;
 }
+.avatar {
+    border-radius: 40px;
+}

@@ -4,6 +4,7 @@ import { NotifyComponent } from "../notify/notify.component";
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
+import firebase from 'firebase/app';
 
 @Component({
   selector: 'app-set-up',
@@ -23,7 +24,8 @@ export class SetUpComponent implements OnInit {
     firstname: null,
     lastname: null,
     password: null,
-    mobile: null
+    mobile: null,
+    imageUrl: null
   }; 
 
   public notification_msg = { 
@@ -139,13 +141,48 @@ export class SetUpComponent implements OnInit {
     };
   }
 
+  signUpviaGoogle() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    this.auth.signInWithPopup(provider).then((result: any) => {
+      this.user.email = result.additionalUserInfo.profile.email,
+      this.user.firstname = result.additionalUserInfo.profile.given_name,
+      this.user.lastname = result.additionalUserInfo.profile.family_name,
+      this.user.imageUrl = result.additionalUserInfo.profile.picture
+      
+      this.storeCredential = {
+        firstname: this.user.firstname,
+        lastname: this.user.lastname,
+        email: this.user.email,
+        image: this.user.imageUrl
+      };
+      
+      this.newUserCollection.add(this.storeCredential);
+      this.server.userData(this.storeCredential);
+      localStorage.setItem('user', this.user.email);
+      setTimeout(() => {
+        this.rout.navigate(['user'])        
+      }, 1000);
+      // ...
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+    });
+  }
+
   // credential Storage
   public runSaveScript() {
     this.storeCredential = {
       firstname: this.user.firstname,
       lastname: this.user.lastname,
       mobile: this.user.mobile,
-      email: this.user.email
+      email: this.user.email,
+      image: this.user.imageUrl
     };
     
     this.newUserCollection.add(this.storeCredential);

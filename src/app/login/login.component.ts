@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ServerService } from '../service/server.service';
+import firebase from 'firebase/app';
 
 @Component({
   selector: 'app-login',
@@ -48,6 +49,26 @@ export class LoginComponent implements OnInit {
       });
     })
     .catch(()=> this.loginErr = true);
+  }
+
+  signInWithGoogle(): void {
+      var provider = new firebase.auth.GoogleAuthProvider();
+      this.auth.signInWithPopup(provider).then((result: any) => {
+        
+        this.firestore.collection('Users', ref => ref.where('email', '==', result.additionalUserInfo.profile.email)).valueChanges()
+        .subscribe(data => {
+          this.server.userData(data);
+          console.log(this.server.store)
+          setTimeout(() => {
+            this.rout.navigate(['user'])            
+          }, 1000);
+        });
+       
+      }).catch(error => {
+        return error
+        // ...
+      });
+    
   }
 
 }

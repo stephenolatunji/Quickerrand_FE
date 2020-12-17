@@ -15,8 +15,9 @@ export class MakeErrandComponent implements OnInit {
   }
 
   continue(val): void {
+
+    const errandDetails = this.helper.errandDetails;
      //saving of progress
-     const errandDetails = this.helper.errandDetails;
      let setErrandDetails = { 
        addressInfo: errandDetails?.addressInfo, 
        require_purchase: val,
@@ -26,8 +27,14 @@ export class MakeErrandComponent implements OnInit {
      };
      this.helper.saveErrandDetail(setErrandDetails);
      // do routing
-      const markData = { one: false, two: false, three: false, four: true, five: false, six: false };
-      this.indexFunc.mark = markData;
+    switch (val) {
+      case 'yes':
+        this.indexFunc.mark =  { one: false, two: false, three: false, four: true, five: false, six: false };;        
+        break;
+      case 'no':
+        this.indexFunc.mark = { one: false, two: false, three: false, four: false, five: false, six: true };  
+        break;
+    }
   }
 
   back(): void {
