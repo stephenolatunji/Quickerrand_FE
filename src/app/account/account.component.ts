@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../service/server.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-account',
@@ -9,12 +10,18 @@ import { ServerService } from '../service/server.service';
 export class AccountComponent implements OnInit {
   data;
   constructor(
-    private server: ServerService
+    private server: ServerService,
+    private auth: AngularFireAuth
   ) { }
 
   ngOnInit(): void {
     this.data = this.server.store;
     console.log(this.data)
+  }
+
+  logout() {
+    this.auth.signOut();
+    window.location.reload()
   }
 
 }
