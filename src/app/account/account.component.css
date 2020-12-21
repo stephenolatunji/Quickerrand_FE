@@ -79,6 +79,7 @@ h4 {
     text-align: center;
     color: #FF1C1C;
     padding-bottom: 38px;
+    cursor: pointer;
 }
 .avatar {
     border-radius: 40px;
