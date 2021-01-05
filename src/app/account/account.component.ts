@@ -21,6 +21,7 @@ export class AccountComponent implements OnInit {
 
   logout() {
     this.auth.signOut();
+    localStorage.clear();
     window.location.reload()
   }
 

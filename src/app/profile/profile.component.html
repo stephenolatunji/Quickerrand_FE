@@ -1,0 +1,77 @@
+<app-message></app-message>
+<app-picture></app-picture>
+<div class="header">
+    <div><img src="assets/svg/baack-white.svg" alt=""></div>
+    <div>Profile</div>
+    <div></div>
+</div>
+<div class="body">
+    <div class="text-center"><img src="assets/svg/errandee.svg" class="avatar" alt=""></div>
+    <div class="change_pic">Change Picture</div>
+
+    <div class="form-group">
+        <div class="label">
+            <h6>Your name</h6>
+            <img src="assets/svg/edit.svg" alt="" (click)="edit('name')" id="editName">
+        </div>
+        <!-- Your name -->
+        <div class="form-input">
+            <img src="assets/svg/user-grey.svg" alt="">
+            <input type="text" class="col-5" name="firstname" [(ngModel)]="user.firstname" #firstname [readonly]="readonly.firstname">
+            <input type="text" class="col-5" name="lastname" [(ngModel)]="user.lastname" #lastname [readonly]="readonly.lastname">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="label">
+            <h6>Username</h6>
+            <img src="assets/svg/edit.svg" alt="" (click)="edit('username')" id="editUserame"> 
+        </div>
+         <!-- Username -->
+         <div class="form-input">
+            <img src="assets/svg/user_circle.svg" alt="">
+            <input type="text" class="col-11" name="username" [(ngModel)]="user.username" #username [readonly]="readonly.username" (keyup)="checkUsernameExistence()"> 
+        </div>
+    </div>
+    <div class="notice" *ngIf="usernameErr"><img src="assets/svg/warning.svg" alt=""> This username has been taken</div>
+    <div class="form-group">    
+        <div class="label">
+            <h6>Email address</h6>
+            <img src="assets/svg/edit.svg" alt="" (click)="edit('email')" id="editEmail">
+        </div>
+        <!-- Email -->
+        <div class="form-input">
+            <img src="assets/svg/mail.svg" alt="">
+            <input type="text" class="col-11" name="email" [(ngModel)]="user.email" #email [readonly]="readonly.email">
+        </div>
+    </div>
+    <div class="notice" *ngIf="emailErr"><img src="assets/svg/warning.svg" alt=""> This email has been taken</div>
+    <div class="form-group d-flex">
+
+        <div>
+            <div class="label">
+                <h6>Phone number</h6>
+                <img src="assets/svg/edit.svg" alt="" (click)="edit('mobile')" id="editMobile">
+            </div>
+            <!-- Number -->
+            <div class="form-input">
+                <img src="assets/svg/call-grey.svg" alt="">
+                <input type="number" class="col-10" name="mobile" [(ngModel)]="user.mobile" #mobile [readonly]="readonly.mobile">
+            </div>
+        </div>
+        <div class="p-3"></div>
+        <div>
+            <div class="label">
+                <h6>WhatsApp</h6>
+                <img src="assets/svg/edit.svg" alt="" (click)="edit('whatsapp')" id="editWhatsapp">
+            </div>
+            <!-- Whatsapp Number -->
+            <div class="form-input" style="margin-bottom: 130px">
+                <img src="assets/svg/whatsapp-2.svg" alt="">
+                <input type="number" class="col-10" name="whatsapp" [(ngModel)]="user.whatsapp" #whatsapp [readonly]="readonly.whatsapp">
+            </div>
+        </div>
+
+    </div>
+</div>
+<button class="button" (click) = "handleUpdate()" *ngIf="editMode">Save changes</button>
+<app-footer class="footer"></app-footer>

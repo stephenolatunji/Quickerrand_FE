@@ -48,6 +48,13 @@ import { UnboardingStageTwoComponent } from './unboarding/unboarding-stage-two/u
 import { UnboardingIndexComponent } from './unboarding/unboarding-index/unboarding-index.component';
 import { UnboardingStageThreeComponent } from './unboarding/unboarding-stage-three/unboarding-stage-three.component';
 import { GetStartedComponent } from './modal/get-started/get-started.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PictureComponent } from './modal/picture/picture.component';
+import { MessageComponent } from './modal/message/message.component';
+import { CreditDebitComponent } from './transaction-history/credit-debit/credit-debit.component';
+import { TransactionIndexComponent } from './transaction-history/transaction-index/transaction-index.component';
+import { TransactionStatusComponent } from './modal/transaction-status/transaction-status.component';
+import { TransactionDateComponent } from './modal/transaction-date/transaction-date.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +88,14 @@ import { GetStartedComponent } from './modal/get-started/get-started.component';
     UnboardingStageTwoComponent,
     UnboardingIndexComponent,
     UnboardingStageThreeComponent,
-    GetStartedComponent
+    GetStartedComponent,
+    ProfileComponent,
+    PictureComponent,
+    MessageComponent,
+    CreditDebitComponent,
+    TransactionIndexComponent,
+    TransactionStatusComponent,
+    TransactionDateComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { SetUpComponent } from "./set-up/set-up.component";
 import { LoginComponent } from "./login/login.component";
 import { HomeScreenComponent } from "./home-screen/home-screen.component";
 import { IndexComponent } from './make-errrand-folder/index/index.component';
+import { TransactionIndexComponent } from './transaction-history/transaction-index/transaction-index.component';
 import { ErrandDescSummaryComponent } from './errand-desc-summary/errand-desc-summary.component';
 import { IntrestedErrandersComponent } from './errand-request-placed/intrested-erranders/intrested-erranders.component';
 import { ErrandIndexComponent  } from "./errand-screen/errand-index/errand-index.component";
@@ -14,6 +15,7 @@ import { ErrandRunOrRequestedComponent } from './errand-screen/errand-run-or-req
 import { AccountComponent } from './account/account.component';
 import { UnboardingIndexComponent } from './unboarding/unboarding-index/unboarding-index.component';
 import { GetStartedComponent } from './modal/get-started/get-started.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const redirectLoggedInToUser = () => redirectLoggedInTo(['user']);
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
@@ -62,6 +64,12 @@ const routes: Routes = [
   },
   {
     path: 'welcome', component: UnboardingIndexComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToUser }
+  },
+  {
+    path: 'profile', component: ProfileComponent 
+  },
+  {
+    path: 'transaction-history', component: TransactionIndexComponent
   }
   // { path: '**', component: PageNotFoundComponent }
 ];

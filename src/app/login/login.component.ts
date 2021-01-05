@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
   loginErr: boolean = false;
 
   user = {
-    email: null,
-    password: null,
+    email: '',
+    password: '',
   };
   
   type: string = 'password';
