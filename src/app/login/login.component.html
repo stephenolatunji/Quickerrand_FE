@@ -44,7 +44,7 @@
     <button 
     *ngIf="!loginErr"
     class="button1" 
-    (click)="submit(email.value, password.value)"
+    (click)="email.value!=='' && password.value!=='' ? submit(email.value, password.value) : '' "
     [style.opacity]="user.email!==null && user.email!==''&& user.password!==null && user.password!=='' ? '' : '0.2' " 
     [style.background-color]="user.email!==null && user.email!==''&& user.password!==null && user.password!=='' ? '#732CA4' : '#62526D' " 
     >Log in
@@ -53,12 +53,12 @@
     <button 
     *ngIf="loginErr"
     class="button1 buttonErr" 
-    (click)="submit(email.value, password.value)"
+    (click)="email.value!=='' && password.value!=='' ? submit(email.value, password.value) : '' "
     [style.opacity]="email.value!=='' && password.value!=='' ? '' : '0.2' " 
     [style.background-color]="email.value!=='' && password.value!==''? '#732CA4' : '#62526D' " 
     >Log in
     </button>
-
+ 
     <div class="line-text"><span> or log in with</span></div>
     <div class="social-media">
         <button class="g-b mt-3" (click)="signInWithGoogle()"><img src="https://cdn.worldvectorlogo.com/logos/google-icon.svg" width="14" height="14" alt="" class="mr-1"> Google</button>

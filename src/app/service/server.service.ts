@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from "../../environments/environment";
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class ServerService {
 
   public store;
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient, private auth: AngularFireAuth) { }
 
   verifyEmail(email) {
     return this.http.get<any>(`${environment.url}?email=${email}`);
@@ -26,5 +27,16 @@ export class ServerService {
   userData(data) {
     this.store = data[0];    
     return this.store;
+  }
+
+  checkEmailExistence(email) {
+      return this.auth.fetchSignInMethodsForEmail(email).then(data => {
+        if(data.length == 0) {
+          return false
+        }
+        else {
+          return true
+        }
+      })
   }
 }

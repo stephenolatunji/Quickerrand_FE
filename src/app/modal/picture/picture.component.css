@@ -1,0 +1,18 @@
+.modal-content {
+    padding: 16px;
+}
+.modalBody div:first-child {
+    text-align: end;
+}
+.modalBody div:nth-child(2), .modal div:nth-child(3) {
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #62526D;
+    border-bottom: 1px solid rgba(98, 82, 109, 0.5);
+    padding: 16px;
+}
+.modal div:nth-child(3) {
+    border-bottom: 0;
+    padding-bottom: 29px;
+}   

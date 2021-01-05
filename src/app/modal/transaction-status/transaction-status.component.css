@@ -1,0 +1,36 @@
+.modal {
+    border-radius: 50px 50px 0px 0px;
+}
+.modal-content {
+    padding: 12px 17px 24px 17px;
+}
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+}
+h6 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: #62526D;
+}
+.a {
+    display: block;
+}
+.text {
+    display: flex;
+    font-size: 16px;
+    line-height: 24px;
+    color: #62526D;
+    padding: 16px;
+    border-bottom: 1px solid rgba(98, 82, 109, 0.5);
+    justify-content: center
+    /* padding-left: 180px; */
+}
+.text img {
+    margin-right: 16px;
+}
+.last-text {
+    border: none;
+    padding-bottom: 0px;
+}

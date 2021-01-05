@@ -61,26 +61,21 @@ export class SetUpComponent implements OnInit {
     switch (val) {
       case 'email':
         if(this.user.email !== null && this.user.email !== '') {
-          this.auth.fetchSignInMethodsForEmail(this.user.email).then(data => {
-            if(data.length == 0) {
-                this.emailErr = false;
-                // contd
-                this.indexSelected = '1';
-              }
-              else {
-                // err
-                this.emailErr = true;
-              }
+          this.server.checkEmailExistence(this.user.email)
+          .then(data => {
+            this.emailErr = data;
+            // contd
+            (data)? null : this.indexSelected = '1';
           })
           .catch(err => console.log(err))
-
-        }
-        
+        }       
         break;
+
       case 'name': 
         if(this.user.firstname!==null && this.user.lastname!==null && this.user.mobile!==null && this.user.firstname!=='' && this.user.lastname!=='' && this.user.mobile!==''){
           this.indexSelected = '2';
         }
+        break;
 
       case 'all':
 
@@ -109,6 +104,7 @@ export class SetUpComponent implements OnInit {
         else {
           this.chekboxErr = true;
         }
+      break;
 
       default:
         break;
@@ -160,7 +156,7 @@ export class SetUpComponent implements OnInit {
       this.server.userData(this.storeCredential);
       localStorage.setItem('user', this.user.email);
       setTimeout(() => {
-        this.rout.navigate(['user'])        
+        window.location.reload();
       }, 1000);
       // ...
     }).catch(function(error) {
@@ -185,14 +181,14 @@ export class SetUpComponent implements OnInit {
       image: this.user.imageUrl
     };
     
-    this.newUserCollection.add(this.storeCredential);
       this.auth.createUserWithEmailAndPassword(this.user.email, this.user.password)
       .then(() => {
-        this.notification_msg = { msg: "Registration Successfull!", success: true };
-        setTimeout(() => {
-          this.notifier.hide();
-          this.rout.navigate(['login'])
-        }, 2500);    
+        this.newUserCollection.add(this.storeCredential).then(data=>console.log(data))
+        // this.notification_msg = { msg: "Registration Successfull!", success: true };
+        // setTimeout(() => {
+        //   this.notifier.hide();
+        //   this.rout.navigate(['login'])
+        // }, 2500);    
       })
       .catch(() => {
         this.notification_msg = { msg: "Registration Failed!", success: false };

@@ -1,0 +1,46 @@
+.content {
+    padding: 17px 17px 0px 17px;
+    background-color: #fff;
+    display: flex;
+    box-shadow: 0px 2px 4px rgba(98, 82, 109, 0.3);
+}
+img {
+    margin-right: 16px;
+}
+.data {
+    width: 100%;
+    padding-bottom: 17px;
+    border-bottom: 0.5px solid rgba(98, 82, 109, 0.5);
+}
+.credit, .debit {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    color: #00A735;
+}
+.wallet {
+    display: flex;    
+    margin: 8px 0px 4px 0px;
+    /* justify-content: space-between; */
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(98, 82, 109, 0.8);
+}
+strong {
+    margin-left: 8px;
+}
+.time {
+    font-size: 13px;
+    line-height: 16px;
+    color: rgba(98, 82, 109, 0.8);
+}
+.coin {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: right;
+    color: #00A735;
+}
+.red {
+    color: #FF1C1C;
+}

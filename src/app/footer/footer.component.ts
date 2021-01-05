@@ -37,7 +37,7 @@ export class FooterComponent implements OnInit {
         notification: 'notification-grey'
       }
     }
-    else if(path == '/account') {
+    else if(path == '/account' || path == '/profile') {
       this.color = {
         home: 'home-grey',
         errand: 'errand-grey',

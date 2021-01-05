@@ -19,6 +19,10 @@ export class AppComponent {
   ) { }
 
   ngOnInit(): void {
+    this.getData();
+  }
+
+  getData() {
     this.firestore.collection('Users', ref => ref.where('email', '==', localStorage.getItem('user'))).valueChanges()
     .subscribe(data => {
       this.server.userData(data);
