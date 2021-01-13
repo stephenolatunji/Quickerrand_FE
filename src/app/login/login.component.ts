@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
@@ -43,9 +44,9 @@ export class LoginComponent implements OnInit {
     .then(() => {
       this.firestore.collection('Users', ref => ref.where('email', '==', this.user.email)).valueChanges()
       .subscribe(data => {
-        this.server.userData(data);
+        localStorage.setItem('data', JSON.stringify(data[0]));
         localStorage.setItem('user', this.user.email);
-        this.rout.navigate(['user']);
+        window.location.href = environment.appUrl
       });
     })
     .catch(()=> this.loginErr = true);
@@ -57,10 +58,9 @@ export class LoginComponent implements OnInit {
         
         this.firestore.collection('Users', ref => ref.where('email', '==', result.additionalUserInfo.profile.email)).valueChanges()
         .subscribe(data => {
-          this.server.userData(data);
-          console.log(this.server.store)
+          localStorage.setItem('data', JSON.stringify(data[0]));
           setTimeout(() => {
-            this.rout.navigate(['user'])            
+            window.location.reload()         
           }, 1000);
         });
        

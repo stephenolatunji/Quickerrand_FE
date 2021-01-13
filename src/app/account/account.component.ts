@@ -15,7 +15,7 @@ export class AccountComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.data = this.server.store;
+    this.data = JSON.parse(localStorage.getItem('data'));
     console.log(this.data)
   }
 

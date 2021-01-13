@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-set-up',
@@ -152,11 +153,11 @@ export class SetUpComponent implements OnInit {
         image: this.user.imageUrl
       };
       
-      this.newUserCollection.add(this.storeCredential);
-      this.server.userData(this.storeCredential);
+      this.firestore.collection('Users').doc(this.user.email).set(this.storeCredential);
+      localStorage.setItem('data', JSON.stringify(this.storeCredential));
       localStorage.setItem('user', this.user.email);
       setTimeout(() => {
-        window.location.reload();
+        window.location.href = environment.appUrl
       }, 1000);
       // ...
     }).catch(function(error) {
@@ -180,22 +181,26 @@ export class SetUpComponent implements OnInit {
       email: this.user.email,
       image: this.user.imageUrl
     };
-    
-      this.auth.createUserWithEmailAndPassword(this.user.email, this.user.password)
+    localStorage.setItem('user', this.user.email);
+    localStorage.setItem('data', JSON.stringify(this.storeCredential));
+    this.auth.createUserWithEmailAndPassword(this.user.email, this.user.password)
+    .then(() => {
+      this.firestore.collection('Users').doc(this.user.email).set(this.storeCredential)
       .then(() => {
-        this.newUserCollection.add(this.storeCredential).then(data=>console.log(data))
-        // this.notification_msg = { msg: "Registration Successfull!", success: true };
-        // setTimeout(() => {
-        //   this.notifier.hide();
-        //   this.rout.navigate(['login'])
-        // }, 2500);    
-      })
-      .catch(() => {
-        this.notification_msg = { msg: "Registration Failed!", success: false };
+
+        this.notification_msg = { msg: "Registration Successfull!", success: true };
         setTimeout(() => {
           this.notifier.hide();
-        }, 2500);   
-      })       
+          window.location.href = environment.appUrl;
+        }, 2500);    
+      });
+    })
+    .catch(() => {
+      this.notification_msg = { msg: "Registration Failed!", success: false };
+      setTimeout(() => {
+        this.notifier.hide();
+      }, 2500);   
+    })       
   }
 
 }

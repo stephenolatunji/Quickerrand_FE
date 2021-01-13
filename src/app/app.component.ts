@@ -19,14 +19,32 @@ export class AppComponent {
   ) { }
 
   ngOnInit(): void {
-    this.getData();
+    this.auth.authState.subscribe(data=>{
+      (data!==null)? this.getData() : null
+    })
   }
 
   getData() {
     this.firestore.collection('Users', ref => ref.where('email', '==', localStorage.getItem('user'))).valueChanges()
     .subscribe(data => {
-      this.server.userData(data);
+      localStorage.setItem('data', JSON.stringify(data[0]));
     });
+
+    this.getMyLocation();
+  }
+
+  getMyLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition( (position) => {
+        const cordinate = {
+          lat : position.coords.latitude.toString(),
+          long :  position.coords.longitude.toString()
+        }
+          
+        this.firestore.collection('Users').doc(localStorage.getItem('user'))
+        .set(cordinate, {merge: true})
+      });
+    }
   }
 
 
