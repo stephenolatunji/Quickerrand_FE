@@ -12,7 +12,7 @@ import { IndexComponent } from "../index/index.component";
 })
 export class MapComponent implements OnInit {
 
-  map: mapboxgl.Map;
+  map: mapboxgl.Map; size;
 
   constructor(
     private helper: HelperService,
@@ -43,6 +43,7 @@ export class MapComponent implements OnInit {
   private markersHandler() {
     this.firestore.collection('Users').get()
     .subscribe( (querySnapshot) => {
+      this.size = querySnapshot.size - 1;
       querySnapshot.forEach((doc: any) => {
         (doc.data().email==localStorage.getItem('user'))? 
           null : this.showMarkers([doc.data().long, doc.data().lat], doc.data().image == null ? 'https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png' : doc.data().image)  
@@ -51,17 +52,14 @@ export class MapComponent implements OnInit {
   }
 
   private showMarkers(cord, avatar) {
-    var el = document.createElement('img');
-    el.srcset = avatar;
-    el.setAttribute('width', '30px');
-    el.style.borderRadius = '50% 50% 0 50%';
-    el.style.display = 'inline-block';
-    el.style.transform = 'rotate(-45deg)';
-    el.style.border = '7px solid #62526D'
-
-    new mapboxgl.Marker(el)
-      .setLngLat(cord)
-      .addTo(this.map);
+    var parent = document.createElement('img');
+    var child = document.createElement('img');
+    parent.srcset = 'assets/svg/pointed-marker.svg'
+    child.srcset = avatar;
+    child.setAttribute('width', '50');
+    child.style.borderRadius = '50%';
+    new mapboxgl.Marker(child).setLngLat(cord).addTo(this.map);
+    new mapboxgl.Marker(parent).setLngLat(cord).addTo(this.map);
   }
 
   continue(): void {
