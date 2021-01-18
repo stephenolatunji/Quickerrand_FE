@@ -13,7 +13,7 @@ import firebase from 'firebase/app';
 })
 export class LoginComponent implements OnInit {
 
-  loginErr: boolean = false;
+  loginErr: boolean = false; loading: boolean = false;
 
   user = {
     email: '',
@@ -37,16 +37,22 @@ export class LoginComponent implements OnInit {
   }
 
   submit(email, password) {
-
+    this.loading = true;
     this.user.email = email; this.user.password = password;
     
     this.auth.signInWithEmailAndPassword(this.user.email, this.user.password)
     .then(() => {
       this.firestore.collection('Users', ref => ref.where('email', '==', this.user.email)).valueChanges()
       .subscribe(data => {
-        localStorage.setItem('data', JSON.stringify(data[0]));
-        localStorage.setItem('user', this.user.email);
-        window.location.href = environment.appUrl
+        this.loading =false;
+        if(data.length > 0) {
+          localStorage.setItem('data', JSON.stringify(data[0]));
+          localStorage.setItem('user', this.user.email);
+          window.location.href = environment.appUrl
+        }
+        else {
+          this.loginErr = true
+        }
       });
     })
     .catch(()=> this.loginErr = true);

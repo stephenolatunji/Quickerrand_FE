@@ -17,14 +17,14 @@
             <input type="text" placeholder="Search for area/local govt. area" autofocus name="searchBox" [(ngModel)]="searchBox" (keyup)="autoComplete()" >
         </div>  
 
-        <!-- <div class="use_current_location">
+        <div class="use_current_location">
             <img src="assets/svg/current_location.svg" alt="">
             <span>
                 Use current location
             </span>
-        </div> -->
+        </div>
 
-        <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="mat-elevation-z0">
+       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="mat-elevation-z0">
             
             <mat-expansion-panel-header>        
                 <mat-panel-title>
@@ -72,7 +72,7 @@
             <img src="assets/svg/timer.svg" alt="">
             <span class="mr-auto">Ikeja City Mall, Lagos</span>
             <img src="assets/svg/more.svg" alt="">
-        </div>  -->
+        </div>  
 
         <!-- google search -->
         <div class="google_search" *ngFor="let suggest of suggestion" (click)="setLocation(suggest)">
