@@ -42,7 +42,7 @@
     </div>
 
     <button 
-    *ngIf="!loginErr"
+    *ngIf="!loginErr && !loading"
     class="button1" 
     (click)="email.value!=='' && password.value!=='' ? submit(email.value, password.value) : '' "
     [style.opacity]="user.email!==null && user.email!==''&& user.password!==null && user.password!=='' ? '' : '0.2' " 
@@ -51,13 +51,21 @@
     </button>
 
     <button 
-    *ngIf="loginErr"
+    *ngIf="loginErr && !loading"
     class="button1 buttonErr" 
     (click)="email.value!=='' && password.value!=='' ? submit(email.value, password.value) : '' "
     [style.opacity]="email.value!=='' && password.value!=='' ? '' : '0.2' " 
     [style.background-color]="email.value!=='' && password.value!==''? '#732CA4' : '#62526D' " 
     >Log in
     </button>
+
+    <button 
+    *ngIf="loading"
+    class="button1" 
+    [style.background-color]=" '#62526D' " 
+    >Please wait!
+    </button>
+    
  
     <div class="line-text"><span> or log in with</span></div>
     <div class="social-media">

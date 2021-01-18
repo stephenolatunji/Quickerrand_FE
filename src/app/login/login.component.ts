@@ -12,7 +12,7 @@ import firebase from 'firebase/app';
 })
 export class LoginComponent implements OnInit {
 
-  loginErr: boolean = false;
+  loginErr: boolean = false; loading: boolean = false;
 
   user = {
     email: '',
@@ -38,14 +38,20 @@ export class LoginComponent implements OnInit {
   submit(email, password) {
 
     this.user.email = email; this.user.password = password;
-    
+    this.loading = true;
     this.auth.signInWithEmailAndPassword(this.user.email, this.user.password)
     .then(() => {
       this.firestore.collection('Users', ref => ref.where('email', '==', this.user.email)).valueChanges()
       .subscribe(data => {
-        this.server.userData(data);
-        localStorage.setItem('user', this.user.email);
-        this.rout.navigate(['user']);
+        this.loading = false;
+        if(data.length!=0) {
+          this.server.userData(data);
+          localStorage.setItem('user', this.user.email);
+          this.rout.navigate(['user']);
+        }
+        else {
+          this.loginErr = true
+        }
       });
     })
     .catch(()=> this.loginErr = true);

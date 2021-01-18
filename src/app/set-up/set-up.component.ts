@@ -183,7 +183,7 @@ export class SetUpComponent implements OnInit {
     
       this.auth.createUserWithEmailAndPassword(this.user.email, this.user.password)
       .then(() => {
-        this.newUserCollection.add(this.storeCredential).then(data=>console.log(data))
+        this.newUserCollection.add(this.storeCredential)
         // this.notification_msg = { msg: "Registration Successfull!", success: true };
         // setTimeout(() => {
         //   this.notifier.hide();
