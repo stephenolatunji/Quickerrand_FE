@@ -45,7 +45,7 @@ export class ProfileComponent implements OnInit {
   }  
 
   public get fetchData() : any {
-    return this.server.store
+    return JSON.parse(localStorage.getItem('data'));
   }
 
   public setData() {

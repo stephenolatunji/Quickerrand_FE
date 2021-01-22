@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
@@ -36,25 +37,24 @@ export class LoginComponent implements OnInit {
   }
 
   submit(email, password) {
-
-    this.user.email = email; this.user.password = password;
     this.loading = true;
+    this.user.email = email; this.user.password = password;
     this.auth.signInWithEmailAndPassword(this.user.email, this.user.password)
     .then(() => {
+      this.loading = false;
       this.firestore.collection('Users', ref => ref.where('email', '==', this.user.email)).valueChanges()
       .subscribe(data => {
-        this.loading = false;
-        if(data.length!=0) {
-          this.server.userData(data);
+        if(data.length > 0) {
+          localStorage.setItem('data', JSON.stringify(data[0]));
           localStorage.setItem('user', this.user.email);
-          this.rout.navigate(['user']);
+          this.rout.navigate(['user'])
         }
         else {
           this.loginErr = true
         }
       });
     })
-    .catch(()=> this.loginErr = true);
+    .catch(()=> { this.loading = false; this.loginErr = true });
   }
 
   signInWithGoogle(): void {
@@ -63,10 +63,9 @@ export class LoginComponent implements OnInit {
         
         this.firestore.collection('Users', ref => ref.where('email', '==', result.additionalUserInfo.profile.email)).valueChanges()
         .subscribe(data => {
-          this.server.userData(data);
-          console.log(this.server.store)
+          localStorage.setItem('data', JSON.stringify(data[0]));
           setTimeout(() => {
-            this.rout.navigate(['user'])            
+            this.rout.navigate((['user']))        
           }, 1000);
         });
        

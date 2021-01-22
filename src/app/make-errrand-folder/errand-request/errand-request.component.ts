@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HelperService } from "../../service/helper.service";
 import { IndexComponent } from "../index/index.component";
+import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 
 @Component({
   selector: 'app-errand-request',
@@ -15,7 +16,8 @@ export class ErrandRequestComponent implements OnInit {
 
   constructor(
     private helper: HelperService,
-    private indexFunc: IndexComponent
+    private indexFunc: IndexComponent,
+    private nativeGeocoder: NativeGeocoder
   ) { }
 
   ngOnInit(): void {
@@ -68,5 +70,23 @@ export class ErrandRequestComponent implements OnInit {
 
   backFunc(): void {
     window.history.back();
+  }
+
+  useCurrentLocation(): void {
+    this.loader = true;
+
+    let options: NativeGeocoderOptions = {
+      useLocale: true,
+      maxResults: 5
+    };
+
+    this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818, options)
+    .then((result: NativeGeocoderResult[]) => {
+
+      document.getElementById('s').innerText = 
+      JSON.stringify(result[0].locality) + JSON.stringify(result[0].subLocality) + JSON.stringify(result[0].subAdministrativeArea )
+
+    })
+    .catch((error: any) => console.log(error));
   }
 }

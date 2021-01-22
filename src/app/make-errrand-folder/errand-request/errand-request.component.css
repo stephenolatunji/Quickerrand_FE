@@ -55,6 +55,9 @@
     line-height: 24px;
     color: #62526D;
 }
+.use_current_location span:hover {
+  font-weight: bold;
+}
  .mat-elevation-z0 {
     padding-bottom: 7px;
     border-bottom: 0.5px solid rgba(98, 82, 109, 0.5);

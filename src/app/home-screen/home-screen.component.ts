@@ -20,7 +20,7 @@ export class HomeScreenComponent implements OnInit {
   }
 
   getData() {
-    this.userData = this.server.store;
+    this.userData = JSON.parse(localStorage.getItem('data'));
   }
 
   makeErrand() {

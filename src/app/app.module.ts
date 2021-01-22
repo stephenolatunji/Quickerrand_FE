@@ -56,6 +56,7 @@ import { TransactionIndexComponent } from './transaction-history/transaction-ind
 import { TransactionStatusComponent } from './modal/transaction-status/transaction-status.component';
 import { TransactionDateComponent } from './modal/transaction-date/transaction-date.component';
 
+import { NativeGeocoder } from "@ionic-native/native-geocoder/ngx";
 @NgModule({
   declarations: [
     AppComponent,
@@ -114,7 +115,7 @@ import { TransactionDateComponent } from './modal/transaction-date/transaction-d
     AngularFirestoreModule,
     AngularFirestoreModule.enablePersistence()
   ],
-  providers: [],
+  providers: [NativeGeocoder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

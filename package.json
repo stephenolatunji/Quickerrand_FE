@@ -1,6 +1,14 @@
 {
-  "name": "quick-errand",
-  "version": "0.0.0",
+  "name": "com.example.hello",
+  "displayName": "Quick Errand",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -24,6 +32,8 @@
     "@angular/platform-browser": "~10.0.6",
     "@angular/platform-browser-dynamic": "~10.0.6",
     "@angular/router": "~10.0.6",
+    "@ionic-native/core": "^5.30.0",
+    "@ionic-native/native-geocoder": "^5.30.0",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
     "bootstrap": "^4.5.0",
     "firebase": "^7.0.0 || ^8.0.0",
@@ -36,27 +46,37 @@
   "devDependencies": {
     "@angular-devkit/architect": ">= 0.900 < 0.1200",
     "@angular-devkit/build-angular": "^0.1100.4",
-    "@angular/cli": "~10.0.5",
+    "@angular/cli": "^11.1.0",
     "@angular/compiler-cli": "~10.0.6",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "cordova-android": "^9.0.0",
+    "cordova-browser": "^6.0.0",
+    "cordova-plugin-whitelist": "^1.3.4",
     "firebase-tools": "^9.0.0",
-    "fuzzy": "^0.1.3",
-    "inquirer": "^6.2.2",
     "inquirer-autocomplete-prompt": "^1.0.1",
-    "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~3.3.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "native": "^0.3.3",
     "open": "^7.0.3",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.9.5"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {}
+    },
+    "platforms": [
+      "android",
+      "browser"
+    ]
   }
 }

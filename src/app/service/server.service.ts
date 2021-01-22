@@ -8,7 +8,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class ServerService {
 
-  public store;
+
 
   constructor(public http: HttpClient, private auth: AngularFireAuth) { }
 
@@ -22,11 +22,6 @@ export class ServerService {
 
   login(data) {
     return this.http.post<any>(`${environment.url_login}`, JSON.stringify(data));
-  }
-
-  userData(data) {
-    this.store = data[0];    
-    return this.store;
   }
 
   checkEmailExistence(email) {
