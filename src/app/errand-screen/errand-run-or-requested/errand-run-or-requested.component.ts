@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./errand-run-or-requested.component.css']
 })
 export class ErrandRunOrRequestedComponent implements OnInit {
-  errandType
+  errandType; rout: string = 'errands';
   constructor() { }
 
   ngOnInit(): void {  

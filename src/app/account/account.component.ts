@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ServerService } from '../service/server.service';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-account',
@@ -8,21 +9,29 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
-  data;
+
+  data; loader: boolean = false; rout: string = 'account';
+
   constructor(
-    private server: ServerService,
-    private auth: AngularFireAuth
+    private auth: AngularFireAuth,
+    private router: Router,
+    private footer: FooterComponent
   ) { }
 
   ngOnInit(): void {
     this.data = JSON.parse(localStorage.getItem('data'));
-    console.log(this.data)
   }
 
   logout() {
-    this.auth.signOut();
-    localStorage.clear();
-    window.location.reload()
+    this.loader = true;
+    this.auth.signOut().then(() => {
+      this.loader = false;
+      localStorage.setItem("data", null);
+      localStorage.setItem("user", null);
+      localStorage.setItem("rout", 'user');
+      this.footer.pathChecker('user');
+      this.router.navigate(['login'])      
+    });
   }
 
 }

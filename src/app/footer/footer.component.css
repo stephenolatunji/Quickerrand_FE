@@ -11,3 +11,6 @@
     text-align: center;
     color: #732CA4;
 }
+button {
+    outline: none;
+}

@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-set-up',

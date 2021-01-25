@@ -19,6 +19,7 @@ import { ErrandRequestComponent } from './make-errrand-folder/errand-request/err
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatButtonModule} from '@angular/material/button';
 import { MakeErrandComponent } from './make-errrand-folder/make-errand/make-errand.component';
 import { IndexComponent } from './make-errrand-folder/index/index.component';
 import { MakeErrandPageThreeComponent } from './make-errrand-folder/make-errand-page-three/make-errand-page-three.component';
@@ -57,6 +58,9 @@ import { TransactionStatusComponent } from './modal/transaction-status/transacti
 import { TransactionDateComponent } from './modal/transaction-date/transaction-date.component';
 
 import { NativeGeocoder } from "@ionic-native/native-geocoder/ngx";
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -108,6 +112,7 @@ import { NativeGeocoder } from "@ionic-native/native-geocoder/ngx";
     MatCheckboxModule,
     MatExpansionModule,
     MatProgressSpinnerModule,
+    MatButtonModule,
     FormsModule,
     HttpClientModule,
     NgbModule,
@@ -115,7 +120,7 @@ import { NativeGeocoder } from "@ionic-native/native-geocoder/ngx";
     AngularFirestoreModule,
     AngularFirestoreModule.enablePersistence()
   ],
-  providers: [NativeGeocoder],
+  providers: [NativeGeocoder, Geolocation, StatusBar],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

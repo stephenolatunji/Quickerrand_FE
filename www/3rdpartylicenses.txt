@@ -299,7 +299,13 @@ Apache-2.0
 @ionic-native/core
 MIT
 
+@ionic-native/geolocation
+MIT
+
 @ionic-native/native-geocoder
+MIT
+
+@ionic-native/status-bar
 MIT
 
 @ng-bootstrap/ng-bootstrap

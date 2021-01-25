@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ServerService } from '../service/server.service';
 import firebase from 'firebase/app';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import firebase from 'firebase/app';
 })
 export class LoginComponent implements OnInit {
 
-  loginErr: boolean = false; loading: boolean = false;
+  loginErr: boolean = false; loading: boolean = false; lat
 
   user = {
     email: '',
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
     private rout: Router,
     private auth: AngularFireAuth,
     private firestore: AngularFirestore,
-    private server: ServerService
+    private app: AppComponent
     ) { }
 
   ngOnInit(): void {
@@ -74,6 +75,10 @@ export class LoginComponent implements OnInit {
         // ...
       });
     
+  }
+
+  hello() {
+    this.app.getMyLocation()
   }
 
 }

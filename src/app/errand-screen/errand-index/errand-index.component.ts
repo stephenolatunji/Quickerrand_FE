@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./errand-index.component.css']
 })
 export class ErrandIndexComponent implements OnInit {
-
+  rout: string = 'errands';
   constructor(private route: Router) { }
 
   ngOnInit(): void {

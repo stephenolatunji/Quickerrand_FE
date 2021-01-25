@@ -11,7 +11,7 @@
 /node_modules
 
 /platforms
-/plugin
+/plugins
 
 # profiling files
 chrome-profiler-events*.json

@@ -1,18 +1,18 @@
 <div class="body">
-    <div class="svg" (click)="navigator('user')">
-        <img src="assets/svg/{{color.home}}.svg" alt="">
+    <button class="svg" (click)="navigator('user')" mat-button>
+        <img src="assets/svg/home.svg" alt="" [ngStyle]="{opacity: identity.home ? 1 : 0.6}">
         <div class="svg_text">Home</div>
-    </div>
-    <div class="svg" (click)="navigator('errands')">
-        <img src="assets/svg/{{color.errand}}.svg" alt="" >
+    </button>
+    <button class="svg" (click)="navigator('errands')" mat-button>
+        <img id="errand" src="assets/svg/errand.svg" alt="" [ngStyle]="{opacity: identity.errands ? 1 : 0.6}">
         <div class="svg_text">Errands</div>
-    </div>
-    <div class="svg" (click)="navigator('account')">
-        <img src="assets/svg/{{color.account}}.svg" alt="">
+    </button>
+    <button class="svg" (click)="navigator('account')" mat-button>
+        <img src="assets/svg/user.svg" alt="" [ngStyle]="{opacity: identity.account ? 1 : 0.6}">
         <div class="svg_text">Account</div>
-    </div>
-    <div class="svg" (click)="navigator('notification')">
-        <img src="assets/svg/{{color.notification}}.svg" alt="">
+    </button>
+    <button class="svg" (click)="navigator('notification')" mat-button>
+        <img id="notification" src="assets/svg/notification.svg" alt="" [ngStyle]="{opacity: identity.notification ? 1 : 0.6}">
         <div class="svg_text">Notifications</div>
-    </div>
+    </button>
 </div>

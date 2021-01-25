@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,51 +6,51 @@ import { Router } from '@angular/router';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
+@Injectable({
+  providedIn: "root"
+})
 export class FooterComponent implements OnInit {
-  public color;
-  constructor(private route: Router) { }
 
-  ngOnInit(): void {
-    // check rout path
-    this.pathChecker();
+  @Input() rout; color; 
+
+  public identity = {
+    home: false, account: false, notification: false, errands: false
+  }
+  constructor(private route: Router) { }
+  
+  ngOnInit(): void {   
+    this.pathChecker(this.rout);
   }
 
   navigator(x) {  
     this.route.navigate([x]);
   }
 
-  public pathChecker() {
-    const path = window.location.pathname;
-    if(path == '/errands' || path == '/active-errands' || path == '/errand-requested-by-me' || path == '/errand-run-by-me') {
-      this.color = {
-        home: 'home-grey',
-        errand: 'errand',
-        account: 'user-grey',
-        notification: 'notification-grey'
+  public pathChecker(rout) {
+    
+    if(rout == 'errands') {
+      this.identity = {
+        home: false, account: false, notification: false, errands: true
       }
     }
-    else if(path == '/user') {
-      this.color = {
-        home: 'home',
-        errand: 'errand-grey',
-        account: 'user-grey',
-        notification: 'notification-grey'
+    else if(rout == 'user') {
+      this.identity = {
+        home: true, account: false, notification: false, errands: false
       }
     }
-    else if(path == '/account' || path == '/profile') {
-      this.color = {
-        home: 'home-grey',
-        errand: 'errand-grey',
-        account: 'user',
-        notification: 'notification-grey'
+    else if(rout == 'account') {
+      this.identity = {
+        home: false, account: true, notification: false, errands: false
       }
     }
-    else if(path == '/notification') {
-      this.color = {
-        home: 'home-grey',
-        errand: 'errand-grey',
-        account: 'user-grey',
-        notification: 'notification'
+    else if(rout == 'notification') {
+      this.identity = {
+        home: false, account: false, notification: true, errands: false
+      }
+    }
+    else {
+      this.identity = {
+        home: true, account: false, notification: false, errands: false
       }
     }
   }

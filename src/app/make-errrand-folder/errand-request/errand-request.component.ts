@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HelperService } from "../../service/helper.service";
-import { IndexComponent } from "../index/index.component";
-import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
-
+import { IndexComponent } from "../index/index.component"
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 @Component({
   selector: 'app-errand-request',
   templateUrl: './errand-request.component.html',
@@ -17,7 +16,7 @@ export class ErrandRequestComponent implements OnInit {
   constructor(
     private helper: HelperService,
     private indexFunc: IndexComponent,
-    private nativeGeocoder: NativeGeocoder
+    private geolocation: Geolocation
   ) { }
 
   ngOnInit(): void {
@@ -62,6 +61,7 @@ export class ErrandRequestComponent implements OnInit {
       items: errandDetails?.items,
       additional_info: errandDetails?.additional_info
     };
+    this.helper.saveAddressToHistory(setErrandDetails.addressInfo);
     this.helper.saveErrandDetail(setErrandDetails);
     // do routing
     const markData = { one: false, two: true, three: false, four: false, five: false, six: false };
@@ -74,19 +74,20 @@ export class ErrandRequestComponent implements OnInit {
 
   useCurrentLocation(): void {
     this.loader = true;
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.helper.currentLocation(resp.coords.latitude, resp.coords.longitude).subscribe((data: any) => {
+        this.searchBox = data[0].place_name;
+        this.locationSet = true;
+        this.helper.saveCordinate([resp.coords.longitude, resp.coords.latitude]);
+        this.loader = false;
+       })
+    });
+     
 
-    let options: NativeGeocoderOptions = {
-      useLocale: true,
-      maxResults: 5
-    };
+    // this.loader = true;
 
-    this.nativeGeocoder.reverseGeocode(52.5072095, 13.1452818, options)
-    .then((result: NativeGeocoderResult[]) => {
 
-      document.getElementById('s').innerText = 
-      JSON.stringify(result[0].locality) + JSON.stringify(result[0].subLocality) + JSON.stringify(result[0].subAdministrativeArea )
-
-    })
-    .catch((error: any) => console.log(error));
+    
+    // .catch((error: any) => console.log(error));
   }
 }

@@ -7,8 +7,15 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-plugin-geolocation": {
+      "GPS_REQUIRED": "true",
+      "PACKAGE_NAME": "com.quickerrand.hello"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.quickerrand.hello"
+    },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.example.hello"
+      "PACKAGE_NAME": "com.quickerrand.hello"
     }
   },
   "dependent_plugins": {}

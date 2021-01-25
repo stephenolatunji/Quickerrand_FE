@@ -8,10 +8,8 @@ import { ServerService } from '../service/server.service';
   styleUrls: ['./home-screen.component.css']
 })
 export class HomeScreenComponent implements OnInit {
-  public userData;
-
+  public userData; rout: string = 'user';
   constructor(
-    private server: ServerService, 
     private route: Router
     ) { }
 

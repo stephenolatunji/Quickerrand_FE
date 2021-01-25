@@ -71,11 +71,13 @@ h4 {
     border-radius: 8px;
     padding: 12px 16px;
 }
-.sign-out {
-    margin: 40px 0px;
+button {
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
+}
+.sign-out {
+    margin: 40px 0px;
     text-align: center;
     color: #FF1C1C;
     padding-bottom: 38px;
@@ -84,3 +86,7 @@ h4 {
 .avatar {
     border-radius: 40px;
 }
+.loader {
+   display: flex;
+   justify-content: center;
+  }

@@ -71,8 +71,13 @@
         </div>
     </div>
 
-    <div class="sign-out" (click)="logout()">Sign out</div>
+    <div class="sign-out"  (click)="logout()">
+        <button mat-button>Sign out</button>
+    </div>
+    
 </div>
 
-
-<app-footer class="footer"></app-footer>
+<div class="loader">
+    <mat-spinner *ngIf="loader"></mat-spinner>
+</div>
+<app-footer class="footer" [rout]="rout"></app-footer>
