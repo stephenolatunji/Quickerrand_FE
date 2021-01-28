@@ -88,9 +88,23 @@
     margin-top: 16px;
     margin-bottom: 16px;
   }
-  .d-flex {
+  .cover {
     border-bottom: 0.5px solid rgba(98, 82, 109, 0.2);
   }
+  .popover-item {
+    display: flex;
+    justify-content: right;
+    position: fixed;
+    margin-top: -10px;
+    width: 144px;
+    right: 24px;
+    background-color: #fff;
+    padding: 8px;
+    color: #62526D;
+    box-shadow: -2px 0px 8px rgba(98, 82, 109, 0.25);
+    border-radius: 4px;
+  }
+ 
   .history {
     display: flex;
     margin-top: 16px;
@@ -146,3 +160,9 @@
     height: 10px;
     width: 10px;
   }
+    
+  button {
+   text-align: start;
+   padding-left: 0px;
+   outline: none;
+ }

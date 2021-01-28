@@ -26,7 +26,8 @@ export class LoginComponent implements OnInit {
     private rout: Router,
     private auth: AngularFireAuth,
     private firestore: AngularFirestore,
-    private app: AppComponent
+    private app: AppComponent,
+    private server: ServerService
     ) { }
 
   ngOnInit(): void {
@@ -46,8 +47,7 @@ export class LoginComponent implements OnInit {
       this.firestore.collection('Users', ref => ref.where('email', '==', this.user.email)).valueChanges()
       .subscribe(data => {
         if(data.length > 0) {
-          localStorage.setItem('data', JSON.stringify(data[0]));
-          localStorage.setItem('user', this.user.email);
+          this.server.storeUserData(data[0]);
           this.rout.navigate(['user'])
         }
         else {
@@ -64,10 +64,8 @@ export class LoginComponent implements OnInit {
         
         this.firestore.collection('Users', ref => ref.where('email', '==', result.additionalUserInfo.profile.email)).valueChanges()
         .subscribe(data => {
-          localStorage.setItem('data', JSON.stringify(data[0]));
-          setTimeout(() => {
-            this.rout.navigate((['user']))        
-          }, 1000);
+          this.server.storeUserData(data[0]);
+          this.rout.navigate(['user'])
         });
        
       }).catch(error => {
@@ -75,10 +73,6 @@ export class LoginComponent implements OnInit {
         // ...
       });
     
-  }
-
-  hello() {
-    this.app.getMyLocation()
   }
 
 }

@@ -1,11 +1,11 @@
 
 
-<div class="d-flex">
-    <img class="avatar" [src]="data.image" alt="" width="50" height="50">
-    <h5>{{data.lastname}} {{data.firstname}}</h5>
+<div class="d-flex" *ngIf="!loader">
+    <img class="avatar" [src]="data?.image == undefined? 'https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png' : data?.image" alt="" width="50" height="50">
+    <h5>{{data?.lastname}} {{data?.firstname}}</h5>
 </div>
 
-<div class="balance-box" style="position: relative;">
+<div class="balance-box" style="position: relative;" *ngIf="!loader">
     <div class="balance-box-one">
         <div>   
             <h6 class="text-justify">Coin wallet balance</h6>
@@ -29,7 +29,7 @@
     </div>    
 </div>
 
-<div class="body">
+<div class="body" *ngIf="!loader">
 
     <div class="items">
         <div class="d-flex">
@@ -77,7 +77,7 @@
     
 </div>
 
-<div class="loader">
+<div class="spinner text-center">
     <mat-spinner *ngIf="loader"></mat-spinner>
 </div>
-<app-footer class="footer" [rout]="rout"></app-footer>
+<app-footer class="footer" [rout]="rout" *ngIf="!loader"></app-footer>

@@ -1,11 +1,11 @@
-<div class="whole"> 
+<div class="whole" *ngIf="!loader"> 
     <div class="text1">
         Welcome on board,
     </div>
-    <div class="text2">
+    <div class="text2"> 
         <!-- {{ userData[1] }}! python render -->
-        {{ userData.firstname }}!
-    </div>
+        {{ userData?.firstname }}!
+   </div> 
     
     <div class="what_would_you_like_to_do">
         <h4>What would you like to do?</h4>
@@ -26,4 +26,8 @@
         
 </div>
 
-<app-footer class="footer" [rout]="rout" ></app-footer>
+<div class="spinner text-center">
+    <mat-spinner *ngIf="loader"></mat-spinner>
+</div>
+
+<app-footer class="footer" [rout]="rout" *ngIf="!loader"></app-footer>

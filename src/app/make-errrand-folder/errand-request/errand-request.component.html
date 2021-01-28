@@ -1,10 +1,10 @@
-<div class="whole">
+<div class="whole" (click)="clearPopOver(previousIndex)">
     <div class="head">
         <img src="assets/svg/back.svg" alt="" (click)="backFunc()">
         <div class="text1">
             Make an errand request
         </div>
-        <img src="assets/svg/home.svg" alt="">
+        <img src="assets/svg/home.svg" alt="" (click)="backFunc()">
     </div>
     
     <div class="body">
@@ -35,44 +35,30 @@
                 </mat-panel-title>
             </mat-expansion-panel-header>
             
-            <div class="d-flex">
-                <div class="mr-auto saved_areas_text">
-                    Ozumba Mbadiwe Road, Lagos
+            <div class="d-flex" *ngFor="let savedAddress of savedAddress; let i = index">
+                <div class="mr-auto saved_areas_text" (click)="handleUseSavedAddress(savedAddress)">
+                    {{savedAddress.address}}
                 </div>
-                <img src="assets/svg/cancel.svg" alt="">
-            </div>
-
-            <div class="d-flex">
-                <div class="mr-auto saved_areas_text">
-                    Obafemi Awolowo Road, Ikoyi, Lagos
-                </div>
-                <img src="assets/svg/cancel.svg" alt="">
-            </div>
-
-            <div class="d-flex">
-                <div class="mr-auto saved_areas_text">
-                    Computer Village, Lagos
-                </div>
-                <img src="assets/svg/cancel.svg" alt="">
+                <img src="assets/svg/cancel.svg" alt="" (click)="handleDeleteSavedAddress(i)">
             </div>
             
         </mat-expansion-panel>
 
-        <div class="history d-flex">
-            <img src="assets/svg/timer.svg" alt="">
-            <span class="mr-auto">Glover Road, Lagos</span>
-            <img src="assets/svg/more.svg" alt="">
+
+        <div class="cover" *ngFor="let history of addressHistory; let i = index">
+
+            <div class="history">
+                <img src="assets/svg/timer.svg" alt="" (click)="clearPopOver(i)">
+                <span class="mr-auto" (click)="handleUseHistory(history, i)">{{history?.address}}</span>
+                <img src="assets/svg/more.svg" alt="" (click)="history.status ? clearPopOver(i) : handlePopover(i)">
+            </div>
+            <div class="popover-item animate__animated animate__heartBeat" *ngIf="history.status">
+                <div>
+                    <button class="save_history w-100" (click)="handleSaveAddress(history)" mat-button> <img src="assets/svg/saved_areas.svg"  width="14" height="16" alt="" style="margin-right: 8px;"> <span style="line-height: 16px; font-size: 14px;"> Save</span></button>
+                    <button class="deleteHistory" (click)="handleDeleteHistory(i)" mat-button > <img src="assets/svg/cancel.svg" alt="" style="margin-right: 8px;"> <span style="line-height: 16px; font-size: 14px;"> Remove</span></button>
+                </div>             
+            </div>
         </div>
-        <div class="history d-flex">
-            <img src="assets/svg/timer.svg" alt="">
-            <span class="mr-auto">Ajao Estate, Lagos</span>
-            <img src="assets/svg/more.svg" alt="">
-        </div>
-        <div class="history d-flex">
-            <img src="assets/svg/timer.svg" alt="">
-            <span class="mr-auto">Ikeja City Mall, Lagos</span>
-            <img src="assets/svg/more.svg" alt="">
-        </div>  
 
         <!-- google search -->
         <div class="google_search" *ngFor="let suggest of suggestion" (click)="setLocation(suggest)">

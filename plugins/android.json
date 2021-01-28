@@ -16,6 +16,9 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.quickerrand.hello"
+    },
+    "cordova-plugin-nativestorage": {
+      "PACKAGE_NAME": "com.quickerrand.hello"
     }
   },
   "dependent_plugins": {}

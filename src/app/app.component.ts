@@ -3,7 +3,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { ServerService } from './service/server.service';
+import { HomeScreenComponent } from './home-screen/home-screen.component';
+import { AccountComponent } from './account/account.component';
+import { ErrandRequestComponent } from './make-errrand-folder/errand-request/errand-request.component';
 
 @Component({
   selector: 'app-root',
@@ -16,23 +19,25 @@ export class AppComponent {
     private auth: AngularFireAuth,
     private firestore: AngularFirestore,
     private geolocation: Geolocation,
-    private statusBar: StatusBar
+    private service: ServerService,
+    private home: HomeScreenComponent,
+    private account: AccountComponent
   ) { }
 
   ngOnInit(): void {
-
     this.auth.authState.subscribe(data=>{
-      (data!==null)? localStorage.getItem('data') == null ? this.getData() : null : null
+      (data!==null)? this.getData(data.email) : null
     })
 
   }
 
-  getData() {
-    this.firestore.collection('Users', ref => ref.where('email', '==', localStorage.getItem('user'))).valueChanges()
+  getData(email) {
+    this.firestore.collection('Users', ref => ref.where('email', '==', email)).valueChanges()
     .subscribe(data => {
-      localStorage.setItem('data', JSON.stringify(data[0]));
+        this.service.storeUserData(data[0]);  
+        this.home.ngOnInit();
+        this.account.ngOnInit();
     });
-
   }
 
   getMyLocation() {
@@ -42,7 +47,7 @@ export class AppComponent {
         lat: resp.coords.latitude.toString(),
         long :  resp.coords.longitude.toString()
       };
-      this.firestore.collection('Users').doc(localStorage.getItem('user'))
+      this.firestore.collection('Users').doc(this.service.userData)
       .set(cordinate, {merge: true})
     })
   }

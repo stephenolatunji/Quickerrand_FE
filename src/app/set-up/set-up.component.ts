@@ -180,8 +180,8 @@ export class SetUpComponent implements OnInit {
       email: this.user.email,
       image: this.user.imageUrl
     };
-    localStorage.setItem('user', this.user.email);
-    localStorage.setItem('data', JSON.stringify(this.storeCredential));
+ 
+    
     this.auth.createUserWithEmailAndPassword(this.user.email, this.user.password)
     .then(() => {
       this.firestore.collection('Users').doc(this.user.email).set(this.storeCredential)
@@ -189,6 +189,7 @@ export class SetUpComponent implements OnInit {
 
         this.notification_msg = { msg: "Registration Successfull!", success: true };
         setTimeout(() => {
+          this.server.storeUserData(this.storeCredential);
           this.notifier.hide();
           this.rout.navigate(['user']);
         }, 2500);    

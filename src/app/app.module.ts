@@ -60,6 +60,7 @@ import { TransactionDateComponent } from './modal/transaction-date/transaction-d
 import { NativeGeocoder } from "@ionic-native/native-geocoder/ngx";
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @NgModule({
   declarations: [
@@ -120,7 +121,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
     AngularFirestoreModule,
     AngularFirestoreModule.enablePersistence()
   ],
-  providers: [NativeGeocoder, Geolocation, StatusBar],
+  providers: [NativeGeocoder, Geolocation, StatusBar, NativeStorage],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
