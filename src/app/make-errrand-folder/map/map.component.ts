@@ -1,3 +1,4 @@
+import { ServerService } from './../../service/server.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
@@ -17,6 +18,7 @@ export class MapComponent implements OnInit {
   constructor(
     private helper: HelperService,
     private indexFunc: IndexComponent,
+    private server : ServerService,
     private firestore: AngularFirestore  ) { }
 
   ngOnInit(): void {
@@ -45,8 +47,11 @@ export class MapComponent implements OnInit {
     .subscribe( (querySnapshot) => {
       this.size = querySnapshot.size - 1;
       querySnapshot.forEach((doc: any) => {
-        (doc.data().email==localStorage.getItem('user'))? 
-          null : this.showMarkers([doc.data().long, doc.data().lat], doc.data().image == null ? 'https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png' : doc.data().image)  
+        setTimeout(() => {
+          
+          (doc.data().email==this.server.userData.email)? 
+            null : this.showMarkers([doc.data().long, doc.data().lat], doc.data().image == null ? 'https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png' : doc.data().image)  
+        }, 500);
       })
     })
   }

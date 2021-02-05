@@ -1,7 +1,9 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { ErrandeeProfileComponent } from 'src/app/modal/errandee-profile/errandee-profile.component';
 import { PayErrandFeeComponent } from '../../modal/pay-errand-fee/pay-errand-fee.component';
 import { PaymentSuccessfulComponent } from '../../modal/payment-successful/payment-successful.component';
+import { HelperService } from 'src/app/service/helper.service';
+
 declare var $: any;
 
 @Component({
@@ -11,17 +13,22 @@ declare var $: any;
 })
 
 export class ShowInrtestedErrandersListComponent implements OnInit {
-  errandee = [1, 2, 3, 4, 5, 6, 8, 9];
+  @Input() errandee; errandDetails;
 
   constructor(
+    private helper: HelperService,
     private payErrandFeeModal: PayErrandFeeComponent,
     private paymentSuccessfulModal: PaymentSuccessfulComponent,
     private errandProfileModal: ErrandeeProfileComponent,
   ) { }
 
   ngOnInit(): void {
+    this.errandDetails = this.helper.errandDetails;
+    if (this.errandDetails == undefined) {
+      //window.history.back();
+    }
     // this.payErrandFeeModal.show();
     // this.paymentSuccessfulModal.show();
-    this.errandProfileModal.show();
+    //this.errandProfileModal.show();
   }
 }

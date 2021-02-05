@@ -9,9 +9,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class ServerService {
 
-  userData; 
+  userData;
 
- constructor(public http: HttpClient, private auth: AngularFireAuth, private firestore: AngularFirestore) { }
+  constructor(public http: HttpClient, private auth: AngularFireAuth, private firestore: AngularFirestore) { }
 
   verifyEmail(email) {
     return this.http.get<any>(`${environment.url}?email=${email}`);
@@ -26,43 +26,41 @@ export class ServerService {
   }
 
   checkEmailExistence(email) {
-      return this.auth.fetchSignInMethodsForEmail(email).then(data => {
-        if(data.length == 0) {
-          return false
-        }
-        else {
-          return true
-        }
-      })
+    return this.auth.fetchSignInMethodsForEmail(email).then(data => {
+      if (data.length == 0) {
+        return false
+      }
+      else {
+        return true
+      }
+    })
   }
 
-  storeUserData(data) {console.log(data)
+  storeUserData(data) {
+    console.log(data)
     return this.userData = data;
   }
 
   storeErrandToDb(errandDetails) {
     let allErrands;
-    let existingErrandDetail = this.userData.errands;
-    console.log(this.userData)
-    if(existingErrandDetail == undefined) {
-      allErrands = [errandDetails] 
+    console.log(this.userData.errands_posted);
+    let existingErrandDetail = [];
+    console.log(this.userData.errands_posted)
+    if (this.userData.errands_posted == undefined) {
+      allErrands = [errandDetails];
     }
     else {
+      existingErrandDetail = JSON.parse(this.userData.errands_posted);
       existingErrandDetail.unshift(errandDetails);
       allErrands = existingErrandDetail
     }
-  
-    this.storeUserData(allErrands);
+
+    this.userData.errands_posted   = JSON.stringify(allErrands);
+    this.storeUserData(this.userData);
 
     return this.firestore.collection('Users').doc(this.userData.email)
-      .set({errands: allErrands }, {merge: true})
-      .then(()=>{}).catch((err)=>{console.log(err)});
-    
-
-    //  // update the datatbase 
-    //  this.firestore.collection('Users').doc(this.userData.email)
-    //  .set(errandDetails, {merge: true})
-    //  .then(()=>{}).catch((err)=>{console.log(err)});
+      .set({ errands_posted: JSON.stringify(allErrands) }, { merge: true })
+      .then(() => { }).catch((err) => { console.log(err) });
   }
 
 }

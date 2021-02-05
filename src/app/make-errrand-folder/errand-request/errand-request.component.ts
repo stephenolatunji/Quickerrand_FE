@@ -27,7 +27,9 @@ export class ErrandRequestComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchBox = this.helper.errandDetails?.address;
-    this.getData();
+    setTimeout(() => {   
+      this.getData();
+    }, 1000);
   }
 
   autoComplete() {

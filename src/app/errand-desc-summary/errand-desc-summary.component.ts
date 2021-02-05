@@ -13,10 +13,15 @@ export class ErrandDescSummaryComponent implements OnInit {
   constructor(private helper: HelperService, private rout: Router, private server: ServerService) { }
 
   ngOnInit(): void {
-    this.errandDetails = this.helper.errandDetails;
+    this.errandDetails = this.helper.errandDetails; console.log(this.errandDetails)
     if(this.errandDetails == undefined) {
       window.history.back(); 
     }
+    if(this.errandDetails.addressInfo.region == undefined) {
+      const x = this.errandDetails.addressInfo.address.split(',');
+      this.errandDetails.addressInfo.region = x[x.length-1]
+    }
+
   }
 
   back() {
@@ -25,7 +30,8 @@ export class ErrandDescSummaryComponent implements OnInit {
 
   submit() {
     this.errandDetails.action = 'pending';
-     this.server.storeErrandToDb(this.errandDetails)
+    this.server.storeErrandToDb(this.errandDetails);
+    this.rout.navigate(['errand-request-placement'])
   }
 
 }
